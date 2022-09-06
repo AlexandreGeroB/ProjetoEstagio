@@ -1,7 +1,9 @@
+import { EnderecosService } from './../services/enderecos.service';
+import { Enderecos } from './../classes/enderecos';
 import { MonitoradorService } from './../services/monitorador.service';
 import { Monitorador } from './../classes/monitorador';
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista',
@@ -15,7 +17,9 @@ export class ListaComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private monitoradorService: MonitoradorService
+    private monitoradorService: MonitoradorService,
+    private enderecosService: EnderecosService
+
   ) { }
 
   ngOnInit(): void {
@@ -27,5 +31,10 @@ export class ListaComponent implements OnInit {
 
   onAdd(){
     this.router.navigateByUrl('lista/cadastro')
+  }
+
+  onRemove(row: Monitorador){
+    this.monitoradorService.deleteMonitorador(row.id).subscribe();
+    this.enderecosService.deleteEnderecos(row.id).subscribe();
   }
 }

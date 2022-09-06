@@ -1,7 +1,9 @@
+import { EnderecosService } from './../services/enderecos.service';
 import { Monitorador } from './../classes/monitorador';
 import { MonitoradorService } from './../services/monitorador.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Enderecos } from '../classes/enderecos';
 
 @Component({
   selector: 'app-editar',
@@ -21,22 +23,38 @@ export class EditarComponent implements OnInit {
     id: 0
   }
 
+  enderecos: Enderecos = {
+    end: '',
+    num: '',
+    cep: '',
+    bairro: '',
+    cidade: '',
+    estado: '',
+    id: 0
+  }
+
   constructor(
     private monitoradorService: MonitoradorService,
+    private enderecosService: EnderecosService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
-    this.monitoradorService.getById(id).subscribe(monitorador => {
+    this.monitoradorService.getByIdMonitorador(id).subscribe(monitorador => {
       this.monitorador = monitorador
+    });
+
+    this.enderecosService.getByIdEnderecos(id).subscribe(enderecos => {
+      this.enderecos = enderecos
     });
   }
 
-  updateMonitorador(){
-    this.monitoradorService.put(this.monitorador).subscribe(() =>{
+  update(){
+    this.monitoradorService.putMonitorador(this.monitorador).subscribe(() =>{
       this.router.navigateByUrl('lista')
+      this.enderecosService.putEnderecos(this.enderecos).subscribe()
     })
   }
 

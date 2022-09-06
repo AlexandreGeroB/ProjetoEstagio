@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MonitoradorService {
+  
 
   urlBase = "http://localhost:3000/listaMonitoradores"
 
@@ -14,7 +15,7 @@ export class MonitoradorService {
     private http: HttpClient
   ) { }
 
-  create(monitorador: Monitorador): Observable<Monitorador>{
+  createMonitorador(monitorador: Monitorador): Observable<Monitorador>{
     return this.http.post<Monitorador>(this.urlBase, monitorador)
   }
 
@@ -22,13 +23,17 @@ export class MonitoradorService {
     return this.http.get<Monitorador[]>(this.urlBase)
   }
 
-  getById(id: any): Observable<Monitorador> {
+  getByIdMonitorador(id: any): Observable<Monitorador> {
     const url = `${this.urlBase}/${id}`
     return this.http.get<Monitorador>(url)
   }
 
-  put(monitorador: Monitorador): Observable<Monitorador>{
+  putMonitorador(monitorador: Monitorador): Observable<Monitorador>{
     const url = `${this.urlBase}/${monitorador.id}`
     return this.http.put<Monitorador>(url, monitorador)
+  }
+
+  deleteMonitorador(id: number){
+    return this.http.delete<Monitorador>(`${this.urlBase}/${id}`);
   }
 }

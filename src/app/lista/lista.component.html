@@ -16,18 +16,18 @@
     </ng-container>
 
     <ng-container matColumnDef="nome">
-      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <th mat-header-cell *matHeaderCellDef>Name / Razão Social</th>
       <td mat-cell *matCellDef="let row">{{row.nome}}</td>
     </ng-container>
 
     <ng-container matColumnDef="cpf">
-      <th mat-header-cell *matHeaderCellDef>CPF</th>
-      <td mat-cell *matCellDef="let row">{{row.cpf}}</td>
+      <th mat-header-cell *matHeaderCellDef>CPF / CNPJ</th>
+      <td mat-cell *matCellDef="let row">{{ row.cpf != "" ? row.cpf : row.cnpj }}</td>
     </ng-container>
 
     <ng-container matColumnDef="rg">
-      <th mat-header-cell *matHeaderCellDef>RG</th>
-      <td mat-cell *matCellDef="let row">{{row.rg}}</td>
+      <th mat-header-cell *matHeaderCellDef>RG / Inscrição Estadual</th>
+      <td mat-cell *matCellDef="let row">{{ row.rg != "" ? row.rg : row.inscricaoEstadual }}</td>
     </ng-container>
     <ng-container matColumnDef="email">
       <th mat-header-cell *matHeaderCellDef>Email</th>
@@ -46,7 +46,7 @@
         <mat-icon>edit</mat-icon>
 
       </a>
-      <a routerLink="">
+      <a routerLink="" (click)="onRemove(row)">
         <mat-icon>delete</mat-icon>
       </a>
       <a routerLink="">

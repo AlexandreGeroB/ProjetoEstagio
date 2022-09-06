@@ -2,53 +2,62 @@
   "listaMonitoradores": [
     {
       "nome": "Alexandre Gero Bordori dos Santos",
-      "cpf": 77777777777,
-      "rg": 777777,
+      "cpf": "77777777777777",
+      "rg": "4444444",
       "email": "xandy.bordori@hotmail.com",
       "cnpj": "",
       "inscricaoEstadual": "",
-      "contato": 99945594949,
+      "contato": "62994956215",
       "id": 1
     },
     {
-      "nome": "Alexandre Gero Bordori dos Santos",
-      "cpf": "70553982150",
-      "rg": "214214124",
-      "email": "bordori122@gmail.com",
-      "cnpj": "",
-      "inscricaoEstadual": "",
-      "contato": "124124124124",
+      "nome": "Jacó",
+      "cpf": "",
+      "rg": "",
+      "email": "xandy.bordori@hotmail.com",
+      "cnpj": "1241241241241",
+      "inscricaoEstadual": "23213123",
+      "contato": "62994956215",
       "id": 2
     },
     {
       "nome": "Alexandre Gero Bordori dos Santos",
-      "cpf": "70553982150",
-      "rg": "12312313",
-      "email": "bordori122@gmail.com",
+      "cpf": "77777777777777",
+      "rg": "77777777",
+      "email": "Jaime@gmail.com",
       "cnpj": "",
       "inscricaoEstadual": "",
-      "contato": "62994956128",
+      "contato": "62994956215",
       "id": 3
+    }
+  ],
+  "listaEnderecos": [
+    {
+      "end": "Rua 2",
+      "num": "23",
+      "cep": "31462206",
+      "bairro": "Fabril",
+      "cidade": "Anápolis",
+      "estado": "Goiás - GO",
+      "id": 1
     },
     {
-      "nome": "Cleber",
-      "cpf": "85236985214",
-      "rg": "12345678",
-      "email": "bordori122@gmail.com",
-      "cnpj": "",
-      "inscricaoEstadual": "",
-      "contato": "6235985565224",
-      "id": 4
+      "end": "Rua 12",
+      "num": "312",
+      "cep": "42742727",
+      "bairro": "Fabril",
+      "cidade": "Anápolis",
+      "estado": "Goiás - GO",
+      "id": 2
     },
     {
-      "nome": "Alexandre Gero",
-      "cpf": "70553982150",
-      "rg": "12312313",
-      "email": "kamimura145@hotmail.com",
-      "cnpj": "",
-      "inscricaoEstadual": "",
-      "contato": "62994956128",
-      "id": 5
+      "end": "Rua 2",
+      "num": "23",
+      "cep": "75144621",
+      "bairro": "Fabril",
+      "cidade": "Anápolis",
+      "estado": "Goiás - GO",
+      "id": 3
     }
   ]
 }

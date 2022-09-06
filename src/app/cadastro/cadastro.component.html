@@ -8,25 +8,143 @@
 <div class="container">
   <mat-card>
     <mat-card-title>Cadastrar Monitorador</mat-card-title>
-<form>
+    <select #selectTipoPessoa class="form-select">
+      <option value="fisica">Pessoa Fisica</option>
+      <option value="juridica">Pessoa Juridica</option>
+    </select>
 
-    <label>Nome</label>
-    <input class="form-control" name="nome"  [(ngModel)]="monitorador.nome" />
-    <label>CPF</label>
-    <input class="form-control" name="cpf"  [(ngModel)]="monitorador.cpf" />
-    <label>RG</label>
-    <input class="form-control" name="rg"  [(ngModel)]="monitorador.rg" />
-    <label>Email</label>
-    <input class="form-control" name="email"  [(ngModel)]="monitorador.email" />
-    <label>Contato</label>
-    <input class="form-control" name="contato"  [(ngModel)]="monitorador.contato" />
-</form>
+    <form>
+      <label *ngIf="selectTipoPessoa.value == 'fisica'">Nome</label>
+      <label *ngIf="selectTipoPessoa.value == 'juridica'">Razão Social</label>
+      <input class="form-control" name="nome" [(ngModel)]="monitorador.nome"
+       />
+      <ng-container *ngIf="selectTipoPessoa.value == 'fisica'">
+        <div>
+          <label>CPF</label>
+          <input
+            class="form-control"
+            name="cpf"
+            [(ngModel)]="monitorador.cpf"
+          />
+          <label>RG</label>
+          <input class="form-control" name="rg" [(ngModel)]="monitorador.rg" />
+        </div>
+      </ng-container>
+      <ng-container *ngIf="selectTipoPessoa.value == 'juridica'">
+        <div>
+          <label>CNPJ</label>
+          <input
+            class="form-control"
+            name="cpf"
+            [(ngModel)]="monitorador.cnpj"
+          />
+          <label>Inscrição Estadual</label>
+          <input
+            class="form-control"
+            name="rg"
+            [(ngModel)]="monitorador.inscricaoEstadual"
+          />
+        </div>
+      </ng-container>
+      <label>Email</label>
+      <input
+        class="form-control"
+        name="email"
+        [(ngModel)]="monitorador.email"
+      />
+      <label>Contato</label>
+      <input
+        class="form-control"
+        name="contato"
+        [(ngModel)]="monitorador.contato"
+      />
+    </form>
 
-  <button mat-raised-button color="primary" (click)="onSubmit()" >Salvar</button>
-  <button mat-raised-button (click)="onCancel()" >Cancelar</button>
-</mat-card>
+    <form>
+      <label>CEP</label>
+      <input
+        type="text"
+        class="form-control"
+        minlength="8"
+        maxlength="8"
+        placeholder="Ex. 94105-984"
+        name="cep"
+        [(ngModel)]="enderecos.cep"
+      />
+      <label>Cidade</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Ex. San Francisco"
+        name="cidade"
+        [(ngModel)]="enderecos.cidade"
+      />
+      <label>Estado</label>
+      <select
+        id="inputState"
+        class="form-select"
+        name="estado"
+        [(ngModel)]="enderecos.estado"
+      >
+        <option>Acre - AC</option>
+        <option>Alagoas - AL</option>
+        <option>Amapá - AP</option>
+        <option>Amazonas - AM</option>
+        <option>Bahia - BA</option>
+        <option>Ceará - CE</option>
+        <option>Distrito Federal - DF</option>
+        <option>Espírito Santo - ES</option>
+        <option>Goiás - GO</option>
+        <option>Maranhão - MA</option>
+        <option>Mato Grosso - MT</option>
+        <option>Mato Grosso do Sul - MS</option>
+        <option>Minas Gerais - MG</option>
+        <option>Pará - PA</option>
+        <option>Paraíba - PB</option>
+        <option>Paraná - PR</option>
+        <option>Pernambuco - PE</option>
+        <option>Piauí - PI</option>
+        <option>Rio de Janeiro - RJ</option>
+        <option>Rio Grande do Norte - RN</option>
+        <option>Rio Grande do Sul - RS</option>
+        <option>Rondônia - RO</option>
+        <option>Roraima - RR</option>
+        <option>Santa Catarina - SC</option>
+        <option>São Paulo - SP</option>
+        <option>Sergipe - SE</option>
+        <option>Tocantins - TO</option>
+      </select>
+      <label>Endereço</label>
+      <input
+        type="text"
+        class="form-control"
+        name="end"
+        [(ngModel)]="enderecos.end"
+      />
+      <ng-container>
+      <label>Bairro</label>
+      <input
+        type="text"
+        class="form-control"
+        name="bairro"
+        [(ngModel)]="enderecos.bairro"
+      />
+      <label>Numero</label>
+      <input
+        type="text"
+        class="form-control"
+        name="num"
+        [(ngModel)]="enderecos.num"
+      />
+    </ng-container>
+    </form>
+
+    <button mat-raised-button color="primary" (click)="onSubmit()">
+      Salvar
+    </button>
+    <button mat-raised-button (click)="onCancel()">Cancelar</button>
+  </mat-card>
 </div>
-
 
 <script
   src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"

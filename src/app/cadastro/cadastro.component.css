@@ -6,6 +6,19 @@ form {
 mat-card-title{
   text-align: center;
 }
+
 button {
   margin-right: 15px;
 }
+
+input {
+  margin-bottom: 10px;
+}
+
+.container {
+  width: 60%;
+}
+
+select {
+  margin-bottom: 10px;
+ }
