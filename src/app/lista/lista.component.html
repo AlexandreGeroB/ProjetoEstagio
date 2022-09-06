@@ -1,1 +1,68 @@
-<p>lista works!</p>
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+  crossorigin="anonymous"
+/>
+
+<div class="container">
+  <mat-card>
+  <button mat-raised-button color="primary" (click)="onAdd()">Adicionar</button>
+  <table mat-table [dataSource]="monitorador">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let row">{{row.nome}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cpf">
+      <th mat-header-cell *matHeaderCellDef>CPF</th>
+      <td mat-cell *matCellDef="let row">{{row.cpf}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="rg">
+      <th mat-header-cell *matHeaderCellDef>RG</th>
+      <td mat-cell *matCellDef="let row">{{row.rg}}</td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let row">{{row.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="contato">
+      <th mat-header-cell *matHeaderCellDef>Contato</th>
+      <td mat-cell *matCellDef="let row">{{row.contato}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let row">
+      <a routerLink="/lista/editar/{{ row.id }}">
+        <mat-icon>edit</mat-icon>
+
+      </a>
+      <a routerLink="">
+        <mat-icon>delete</mat-icon>
+      </a>
+      <a routerLink="">
+        <mat-icon>file_open</mat-icon>
+      </a>
+    </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </mat-card>
+</div>
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+  crossorigin="anonymous"
+></script>

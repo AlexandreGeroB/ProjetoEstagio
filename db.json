@@ -1,0 +1,54 @@
+{
+  "listaMonitoradores": [
+    {
+      "nome": "Alexandre Gero Bordori dos Santos",
+      "cpf": 77777777777,
+      "rg": 777777,
+      "email": "xandy.bordori@hotmail.com",
+      "cnpj": "",
+      "inscricaoEstadual": "",
+      "contato": 99945594949,
+      "id": 1
+    },
+    {
+      "nome": "Alexandre Gero Bordori dos Santos",
+      "cpf": "70553982150",
+      "rg": "214214124",
+      "email": "bordori122@gmail.com",
+      "cnpj": "",
+      "inscricaoEstadual": "",
+      "contato": "124124124124",
+      "id": 2
+    },
+    {
+      "nome": "Alexandre Gero Bordori dos Santos",
+      "cpf": "70553982150",
+      "rg": "12312313",
+      "email": "bordori122@gmail.com",
+      "cnpj": "",
+      "inscricaoEstadual": "",
+      "contato": "62994956128",
+      "id": 3
+    },
+    {
+      "nome": "Cleber",
+      "cpf": "85236985214",
+      "rg": "12345678",
+      "email": "bordori122@gmail.com",
+      "cnpj": "",
+      "inscricaoEstadual": "",
+      "contato": "6235985565224",
+      "id": 4
+    },
+    {
+      "nome": "Alexandre Gero",
+      "cpf": "70553982150",
+      "rg": "12312313",
+      "email": "kamimura145@hotmail.com",
+      "cnpj": "",
+      "inscricaoEstadual": "",
+      "contato": "62994956128",
+      "id": 5
+    }
+  ]
+}
