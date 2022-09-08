@@ -14,6 +14,7 @@ export class EditarComponent implements OnInit {
 
   monitorador: Monitorador = {
     nome: '',
+    tipoPessoa: '',
     cpf: '',
     rg: '',
     email: '',
@@ -53,7 +54,7 @@ export class EditarComponent implements OnInit {
 
   update(){
     this.monitoradorService.putMonitorador(this.monitorador).subscribe(() =>{
-      this.router.navigateByUrl('lista')
+      this.router.navigateByUrl('lista');
       this.enderecosService.putEnderecos(this.enderecos).subscribe()
     })
   }

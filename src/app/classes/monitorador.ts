@@ -1,5 +1,6 @@
 export interface Monitorador {
   id: number,
+  tipoPessoa: string,
   nome: string,
   cpf?: string,
   rg?: string,

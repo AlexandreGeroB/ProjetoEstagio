@@ -8,20 +8,20 @@ import { EnderecosService } from '../services/enderecos.service';
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css']
+  styleUrls: ['./cadastro.component.css'],
 })
 export class CadastroComponent implements OnInit {
-
   monitorador: Monitorador = {
     nome: '',
+    tipoPessoa: '',
     cpf: '',
     rg: '',
     email: '',
     cnpj: '',
     inscricaoEstadual: '',
     contato: '',
-    id: 0
-  }
+    id: 0,
+  };
 
   enderecos: Enderecos = {
     end: '',
@@ -30,27 +30,27 @@ export class CadastroComponent implements OnInit {
     bairro: '',
     cidade: '',
     estado: '',
-    id: 0
-  }
-
+    id: 0,
+  };
 
   constructor(
     private router: Router,
     private monitoradorService: MonitoradorService,
     private enderecosService: EnderecosService,
-  ) { }
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSubmit() {
-    this.monitoradorService.createMonitorador(this.monitorador).subscribe()
-    this.enderecosService.createEnderecos(this.enderecos).subscribe()
-    this.router.navigateByUrl('lista')
+    this.monitoradorService.createMonitorador(this.monitorador).subscribe(
+    );
+    this.enderecosService.createEnderecos(this.enderecos).subscribe();
+    console.log(this.monitorador);
+    console.log(this.enderecos)
+    this.router.navigateByUrl('lista');
   }
 
-  onCancel(){
-    this.router.navigateByUrl('lista')
+  onCancel() {
+    this.router.navigateByUrl('lista');
   }
-
 }

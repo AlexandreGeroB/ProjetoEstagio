@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class ListaComponent implements OnInit {
 
   monitorador: Monitorador[] = [];
-  displayedColumns = ['id','nome','cpf','rg','email','contato', 'action']
+  displayedColumns = ['nome','cpf','rg','email','contato', 'action']
 
   constructor(
     private router: Router,

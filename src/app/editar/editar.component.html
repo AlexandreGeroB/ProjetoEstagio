@@ -8,13 +8,13 @@
 <div class="container">
   <mat-card>
     <mat-card-title>Cadastrar Monitorador</mat-card-title>
-    <select #selectTipoPessoa class="form-select">
-      <option value="fisica" selected>Pessoa Fisica</option>
-      <option value="juridica">Pessoa Juridica</option>
-    </select>
+
 
     <form>
-
+      <select #selectTipoPessoa class="form-select" name="tipoPessoa" [(ngModel)]="monitorador.tipoPessoa">
+        <option value="fisica" selected>Pessoa Fisica</option>
+        <option value="juridica">Pessoa Juridica</option>
+      </select>
 
 
       <label *ngIf="selectTipoPessoa.value == 'fisica'">Nome</label>

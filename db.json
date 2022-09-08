@@ -1,41 +1,77 @@
 {
   "listaMonitoradores": [
     {
-      "nome": "Alexandre Gero Bordori dos Santos",
+      "nome": "Alexandre Gero Bordori",
+      "tipoPessoa": "fisica",
       "cpf": "77777777777777",
       "rg": "4444444",
-      "email": "xandy.bordori@hotmail.com",
+      "email": "bordori122@gmail.com",
       "cnpj": "",
       "inscricaoEstadual": "",
       "contato": "62994956215",
       "id": 1
     },
     {
-      "nome": "Jacó",
+      "nome": "Vasco",
+      "tipoPessoa": "juridica",
       "cpf": "",
       "rg": "",
-      "email": "xandy.bordori@hotmail.com",
-      "cnpj": "1241241241241",
-      "inscricaoEstadual": "23213123",
+      "email": "Jaime@gmail.com",
+      "cnpj": "15415151515",
+      "inscricaoEstadual": "4444444",
       "contato": "62994956215",
       "id": 2
     },
     {
-      "nome": "Alexandre Gero Bordori dos Santos",
-      "cpf": "77777777777777",
-      "rg": "77777777",
-      "email": "Jaime@gmail.com",
+      "nome": "Alexandre",
+      "tipoPessoa": "fisica",
+      "cpf": "1241241241241",
+      "rg": "4444444",
+      "email": "bordori122@gmail.com",
       "cnpj": "",
       "inscricaoEstadual": "",
       "contato": "62994956215",
       "id": 3
+    },
+    {
+      "nome": "Jacózin",
+      "tipoPessoa": "juridica",
+      "cpf": "",
+      "rg": "",
+      "email": "xandy.bordori@hotmail.com",
+      "cnpj": "77777777777",
+      "inscricaoEstadual": "123456",
+      "contato": "62994956215",
+      "id": 4
+    },
+    {
+      "nome": "aaaaaaaaaAAA",
+      "tipoPessoa": "fisica",
+      "cpf": "70553982150",
+      "rg": "444444",
+      "email": "xandy.bordori@hotmail.com",
+      "cnpj": "",
+      "inscricaoEstadual": "",
+      "contato": "62994956215",
+      "id": 5
+    },
+    {
+      "nome": "Alexandre Gero Bordori dos Santos",
+      "tipoPessoa": "fisica",
+      "cpf": "77777777777777",
+      "rg": "123456",
+      "email": "xandy.bordori@hotmail.com",
+      "cnpj": "",
+      "inscricaoEstadual": "",
+      "contato": "62994956215",
+      "id": 6
     }
   ],
   "listaEnderecos": [
     {
       "end": "Rua 2",
       "num": "23",
-      "cep": "31462206",
+      "cep": "42742727",
       "bairro": "Fabril",
       "cidade": "Anápolis",
       "estado": "Goiás - GO",
@@ -43,21 +79,48 @@
     },
     {
       "end": "Rua 12",
-      "num": "312",
-      "cep": "42742727",
-      "bairro": "Fabril",
-      "cidade": "Anápolis",
-      "estado": "Goiás - GO",
+      "num": "50",
+      "cep": "21512512",
+      "bairro": "Liberdade",
+      "cidade": "Campo limpo",
+      "estado": "Paraná - PR",
       "id": 2
     },
     {
-      "end": "Rua 2",
+      "end": "Rua 424",
+      "num": "50",
+      "cep": "44565446",
+      "bairro": "Fabril",
+      "cidade": "Campo limpo",
+      "estado": "Rio de Janeiro - RJ",
+      "id": 3
+    },
+    {
+      "end": "Rua 12",
       "num": "23",
-      "cep": "75144621",
+      "cep": "31462206",
+      "bairro": "Fabril",
+      "cidade": "sdaadas",
+      "estado": "Rio Grande do Norte - RN",
+      "id": 4
+    },
+    {
+      "end": "Rua 2",
+      "num": "312",
+      "cep": "44565446",
+      "bairro": "Fabril",
+      "cidade": "sdaadas",
+      "estado": "Bahia - BA",
+      "id": 5
+    },
+    {
+      "end": "Rua 2",
+      "num": "50",
+      "cep": "12412421",
       "bairro": "Fabril",
       "cidade": "Anápolis",
-      "estado": "Goiás - GO",
-      "id": 3
+      "estado": "Minas Gerais - MG",
+      "id": 6
     }
   ]
 }

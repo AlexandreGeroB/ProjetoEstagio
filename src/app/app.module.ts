@@ -20,9 +20,10 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { MatCardModule} from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon';
 import { EditarComponent } from './editar/editar.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 
@@ -46,8 +47,8 @@ import { EditarComponent } from './editar/editar.component';
     MatCardModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
