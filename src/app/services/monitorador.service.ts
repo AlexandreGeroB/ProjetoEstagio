@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MonitoradorService {
-  
+
 
   urlBase = "http://localhost:3000/listaMonitoradores"
 

@@ -34,28 +34,6 @@
       "id": 3
     },
     {
-      "nome": "Jacózin",
-      "tipoPessoa": "juridica",
-      "cpf": "",
-      "rg": "",
-      "email": "xandy.bordori@hotmail.com",
-      "cnpj": "77777777777",
-      "inscricaoEstadual": "123456",
-      "contato": "62994956215",
-      "id": 4
-    },
-    {
-      "nome": "aaaaaaaaaAAA",
-      "tipoPessoa": "fisica",
-      "cpf": "70553982150",
-      "rg": "444444",
-      "email": "xandy.bordori@hotmail.com",
-      "cnpj": "",
-      "inscricaoEstadual": "",
-      "contato": "62994956215",
-      "id": 5
-    },
-    {
       "nome": "Alexandre Gero Bordori dos Santos",
       "tipoPessoa": "fisica",
       "cpf": "77777777777777",
@@ -94,24 +72,6 @@
       "cidade": "Campo limpo",
       "estado": "Rio de Janeiro - RJ",
       "id": 3
-    },
-    {
-      "end": "Rua 12",
-      "num": "23",
-      "cep": "31462206",
-      "bairro": "Fabril",
-      "cidade": "sdaadas",
-      "estado": "Rio Grande do Norte - RN",
-      "id": 4
-    },
-    {
-      "end": "Rua 2",
-      "num": "312",
-      "cep": "44565446",
-      "bairro": "Fabril",
-      "cidade": "sdaadas",
-      "estado": "Bahia - BA",
-      "id": 5
     },
     {
       "end": "Rua 2",

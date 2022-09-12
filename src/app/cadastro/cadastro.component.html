@@ -16,7 +16,7 @@
         name="tipoPessoa"
         [(ngModel)]="monitorador.tipoPessoa"
       >
-        <option value="fisica">Pessoa Fisica</option>
+        <option value="fisica" selected>Pessoa Fisica</option>
         <option value="juridica">Pessoa Juridica</option>
       </select>
       <label *ngIf="selectTipoPessoa.value == 'fisica'">Nome</label>
