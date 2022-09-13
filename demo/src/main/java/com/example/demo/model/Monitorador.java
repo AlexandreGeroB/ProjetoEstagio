@@ -24,4 +24,13 @@ public class Monitorador {
   @Column(nullable = false)
   private String cpf;
 
+  @Column(nullable = false)
+  private String rg;
+
+  @Column(nullable = false)
+  private String email;
+
+  @Column(nullable = false)
+  private String contato;
+
 }

@@ -23,7 +23,9 @@ public class DemoApplication {
       Monitorador c = new Monitorador();
       c.setNome("Alexandre");
       c.setCpf("12345678910");
-
+      c.setRg("12345678");
+      c.setEmail("alexandre@gmail.com");
+      c.setContato("994548169");
 
       monitoradorRepository.save(c);
     };

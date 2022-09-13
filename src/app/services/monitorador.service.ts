@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class MonitoradorService {
 
 
-  urlBase = "http://localhost:3000/listaMonitoradores"
+  urlBase = "api/monitorador"
 
   constructor(
     private http: HttpClient

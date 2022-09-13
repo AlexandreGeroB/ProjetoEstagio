@@ -81,6 +81,15 @@
       "cidade": "Anápolis",
       "estado": "Minas Gerais - MG",
       "id": 6
+    },
+    {
+      "end": "Rua 2",
+      "num": "23",
+      "cep": "31462206",
+      "bairro": "Fabril",
+      "cidade": "Anápolis",
+      "estado": "Piauí - PI",
+      "id": 7
     }
   ]
 }
