@@ -2,7 +2,7 @@ import { EnderecosService } from './../services/enderecos.service';
 import { Enderecos } from './../classes/enderecos';
 import { MonitoradorService } from './../services/monitorador.service';
 import { Monitorador } from './../classes/monitorador';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({

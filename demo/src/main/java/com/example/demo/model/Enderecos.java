@@ -12,30 +12,28 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Monitorador{
 
+public class Enderecos {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
   @Column(nullable = false)
-  private String nome;
+  private String end;
 
   @Column(nullable = false)
-  private String tipoPessoa;
-
-  private String cpf;
-
-  private String rg;
-
-  private String cnpj;
-
-  private String inscricaoEstadual;
+  private String num;
 
   @Column(nullable = false)
-  private String email;
+  private String cep;
 
   @Column(nullable = false)
-  private String contato;
+  private String bairro;
+
+  @Column(nullable = false)
+  private String cidade;
+
+  @Column(nullable = false)
+  private String estado;
 
 }

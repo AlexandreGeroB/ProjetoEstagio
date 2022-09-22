@@ -3,10 +3,10 @@ package com.example.demo.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.model.Monitorador;
+import com.example.demo.model.Enderecos;
 
 @Repository
-public interface MonitoradorRepository extends JpaRepository<Monitorador, Long >{
+public interface EnderecosRepository extends JpaRepository<Enderecos, Long >{
 
 
 }

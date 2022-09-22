@@ -15,7 +15,7 @@ export class MonitoradorService {
     private http: HttpClient
   ) { }
 
-  createMonitorador(monitorador: Monitorador): Observable<Monitorador>{
+  createMonitorador(monitorador: Monitorador){
     return this.http.post<Monitorador>(this.urlBase, monitorador)
   }
 
@@ -29,8 +29,7 @@ export class MonitoradorService {
   }
 
   putMonitorador(monitorador: Monitorador): Observable<Monitorador>{
-    const url = `${this.urlBase}/${monitorador.id}`
-    return this.http.put<Monitorador>(url, monitorador)
+    return this.http.post<Monitorador>(this.urlBase, monitorador)
   }
 
   deleteMonitorador(id: number){

@@ -5,8 +5,10 @@ import {MatButtonModule} from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 
@@ -48,7 +50,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatTableModule,
     MatPaginatorModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -24,6 +24,7 @@ export class EditarComponent implements OnInit {
     id: 0
   }
 
+  
   enderecos: Enderecos = {
     end: '',
     num: '',
@@ -33,6 +34,7 @@ export class EditarComponent implements OnInit {
     estado: '',
     id: 0
   }
+
 
   constructor(
     private monitoradorService: MonitoradorService,
@@ -50,6 +52,7 @@ export class EditarComponent implements OnInit {
     this.enderecosService.getByIdEnderecos(id).subscribe(enderecos => {
       this.enderecos = enderecos
     });
+
   }
 
   update(){

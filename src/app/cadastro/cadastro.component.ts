@@ -13,7 +13,7 @@ import { EnderecosService } from '../services/enderecos.service';
 export class CadastroComponent implements OnInit {
   monitorador: Monitorador = {
     nome: '',
-    tipoPessoa: '',
+    tipoPessoa: 'fisica',
     cpf: '',
     rg: '',
     email: '',
@@ -42,11 +42,9 @@ export class CadastroComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    this.monitoradorService.createMonitorador(this.monitorador).subscribe(
-    );
+    this.monitoradorService.createMonitorador(this.monitorador).subscribe();
     this.enderecosService.createEnderecos(this.enderecos).subscribe();
-    console.log(this.monitorador);
-    console.log(this.enderecos)
+  
     this.router.navigateByUrl('lista');
   }
 

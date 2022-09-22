@@ -15,6 +15,10 @@ input {
   margin-bottom: 10px;
 }
 
+mat-label {
+  margin-bottom: 10px;
+}
+
 .container {
   width: 60%;
 }

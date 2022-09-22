@@ -7,14 +7,15 @@ import { Enderecos } from '../classes/enderecos';
   providedIn: 'root'
 })
 export class EnderecosService {
-  urlBase = "http://localhost:3000/listaEnderecos"
+
+  urlBase = "api/enderecos"
 
   constructor(
     private http: HttpClient,
 
   ) { }
 
-  createEnderecos(enderecos:Enderecos): Observable<Enderecos>{
+  createEnderecos(enderecos:Enderecos){
     return this.http.post<Enderecos>(this.urlBase, enderecos)
   }
 
@@ -23,9 +24,8 @@ export class EnderecosService {
     return this.http.get<Enderecos>(url)
   }
 
-  putEnderecos(enderecos: Enderecos): Observable<Enderecos>{
-    const url = `${this.urlBase}/${enderecos.id}`
-    return this.http.put<Enderecos>(url, enderecos)
+  putEnderecos(monitorador: Enderecos): Observable<Enderecos>{
+    return this.http.post<Enderecos>(this.urlBase, monitorador)
   }
 
   deleteEnderecos(id: number){

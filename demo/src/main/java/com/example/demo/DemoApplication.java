@@ -1,12 +1,8 @@
 package com.example.demo;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
-import com.example.demo.model.Monitorador;
-import com.example.demo.repository.MonitoradorRepository;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -14,20 +10,26 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
-
+/*
   @Bean
   CommandLineRunner initDataBase(MonitoradorRepository monitoradorRepository){
     return args -> {
+
       monitoradorRepository.deleteAll();
 
-      Monitorador c = new Monitorador();
-      c.setNome("Alexandre");
-      c.setCpf("12345678910");
-      c.setRg("12345678");
-      c.setEmail("alexandre@gmail.com");
-      c.setContato("994548169");
+      Monitorador m = new Monitorador();
+      m.setNome("Alexandre");
+      m.setCpf("12345678910");
+      m.setRg("12345678");
+      m.setCnpj(null);
+      m.setInscricaoEstadual(null);
+      m.setEmail("alexandre@gmail.com");
+      m.setContato("994548169");
 
-      monitoradorRepository.save(c);
+      monitoradorRepository.save(m);
     };
   }
+*/
 }
+
+

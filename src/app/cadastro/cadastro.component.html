@@ -10,72 +10,46 @@
     <mat-card-title>Cadastrar Monitorador</mat-card-title>
 
     <form>
-      <select
-        #selectTipoPessoa
-        class="form-select"
-        name="tipoPessoa"
-        [(ngModel)]="monitorador.tipoPessoa"
-      >
+      <label>Tipo de pessoa</label>
+      <select #selectTipoPessoa class="form-select" name="tipoPessoa" [(ngModel)]="monitorador.tipoPessoa">
         <option value="fisica" selected>Pessoa Fisica</option>
         <option value="juridica">Pessoa Juridica</option>
       </select>
+
+
       <label *ngIf="selectTipoPessoa.value == 'fisica'">Nome</label>
       <label *ngIf="selectTipoPessoa.value == 'juridica'">Razão Social</label>
-      <input
-        class="form-control"
-        name="nome"
-        [(ngModel)]="monitorador.nome"
-        required
-      />
-
+      <input class="form-control" name="nome" [(ngModel)]="monitorador.nome" />
       <ng-container *ngIf="selectTipoPessoa.value == 'fisica'">
         <div>
-          <label>CPF</label>
-          <input
-            class="form-control"
-            name="cpf"
-            required
-            [(ngModel)]="monitorador.cpf"
-          />
-          <label>RG</label>
-          <input
-            class="form-control"
-            name="rg"
-            required
-            [(ngModel)]="monitorador.rg"
-          />
-        </div>
+        <label>CPF</label>
+        <input class="form-control" name="cpf" [(ngModel)]="monitorador.cpf" />
+        <label>RG</label>
+        <input class="form-control" name="rg" [(ngModel)]="monitorador.rg" />
+      </div>
       </ng-container>
       <ng-container *ngIf="selectTipoPessoa.value == 'juridica'">
         <div>
-          <label>CNPJ</label>
-          <input
-            class="form-control"
-            name="cpf"
-            required
-            [(ngModel)]="monitorador.cnpj"
-          />
-          <label>Inscrição Estadual</label>
-          <input
-            class="form-control"
-            name="rg"
-            required
-            [(ngModel)]="monitorador.inscricaoEstadual"
-          />
-        </div>
+        <label>CNPJ</label>
+        <input class="form-control" name="cpf" [(ngModel)]="monitorador.cnpj" />
+        <label>Inscrição Estadual</label>
+        <input
+          class="form-control"
+          name="rg"
+          [(ngModel)]="monitorador.inscricaoEstadual"
+        />
+      </div>
       </ng-container>
       <label>Email</label>
       <input
         class="form-control"
         name="email"
-        required
         [(ngModel)]="monitorador.email"
       />
       <label>Contato</label>
       <input
         class="form-control"
         name="contato"
-        required
         [(ngModel)]="monitorador.contato"
       />
     </form>
@@ -89,7 +63,6 @@
         maxlength="8"
         placeholder="Ex. 94105-984"
         name="cep"
-        required
         [(ngModel)]="enderecos.cep"
       />
       <label>Cidade</label>
@@ -98,7 +71,6 @@
         class="form-control"
         placeholder="Ex. San Francisco"
         name="cidade"
-        required
         [(ngModel)]="enderecos.cidade"
       />
       <label>Estado</label>
@@ -106,7 +78,6 @@
         id="inputState"
         class="form-select"
         name="estado"
-        required
         [(ngModel)]="enderecos.estado"
       >
         <option>Acre - AC</option>
@@ -138,34 +109,27 @@
         <option>Tocantins - TO</option>
       </select>
       <label>Endereço</label>
-      <input
-        type="text"
-        class="form-control"
-        name="end"
-        required
-        [(ngModel)]="enderecos.end"
-      />
-      <label>Bairro</label>
-      <input
-        type="text"
-        class="form-control"
-        name="bairro"
-        required
-        [(ngModel)]="enderecos.bairro"
-      />
-      <label>Numero</label>
-      <input
-        type="text"
-        class="form-control"
-        name="num"
-        required
-        [(ngModel)]="enderecos.num"
-      />
+      <input type="text" class="form-control" name="end" [(ngModel)]="enderecos.end"/>
+      <ng-container >
+        <label>Bairro</label>
+        <input
+          type="text"
+          class="form-control"
+          name="bairro"
+          [(ngModel)]="enderecos.bairro"
+        />
+        <label>Numero</label>
+        <input
+          type="text"
+          class="form-control"
+          name="num"
+          [(ngModel)]="enderecos.num"
+        />
+      </ng-container>
     </form>
 
-    <button mat-raised-button color="primary" (click)="onSubmit()">
-      Salvar
-    </button>
+
+    <button mat-raised-button color="primary" (click)="onSubmit()">Salvar</button>
     <button mat-raised-button (click)="onCancel()">Cancelar</button>
   </mat-card>
 </div>
