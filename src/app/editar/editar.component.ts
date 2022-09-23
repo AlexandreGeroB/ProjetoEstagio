@@ -1,4 +1,3 @@
-import { EnderecosService } from './../services/enderecos.service';
 import { Monitorador } from './../classes/monitorador';
 import { MonitoradorService } from './../services/monitorador.service';
 import { Component, OnInit } from '@angular/core';
@@ -24,7 +23,7 @@ export class EditarComponent implements OnInit {
     id: 0
   }
 
-  
+
   enderecos: Enderecos = {
     end: '',
     num: '',
@@ -32,33 +31,32 @@ export class EditarComponent implements OnInit {
     bairro: '',
     cidade: '',
     estado: '',
-    id: 0
+    id: 0,
   }
 
+  isLinear = false;
 
   constructor(
-    private monitoradorService: MonitoradorService,
-    private enderecosService: EnderecosService,
+    private service: MonitoradorService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
-    this.monitoradorService.getByIdMonitorador(id).subscribe(monitorador => {
+    this.service.getByIdMonitorador(id).subscribe(monitorador => {
       this.monitorador = monitorador
     });
-
-    this.enderecosService.getByIdEnderecos(id).subscribe(enderecos => {
+    this.service.getByIdEnderecos(id).subscribe(enderecos => {
       this.enderecos = enderecos
     });
 
   }
 
   update(){
-    this.monitoradorService.putMonitorador(this.monitorador).subscribe(() =>{
+    this.service.putMonitorador(this.monitorador).subscribe(() =>{
       this.router.navigateByUrl('lista');
-      this.enderecosService.putEnderecos(this.enderecos).subscribe()
+      this.service.putEnderecos(this.enderecos).subscribe()
     })
   }
 

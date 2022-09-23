@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.Enderecos;
 import com.example.demo.repository.EnderecosRepository;
 
-
   @RestController
   @RequestMapping("/api/enderecos")
   public class EnderecosController {
@@ -55,6 +54,3 @@ import com.example.demo.repository.EnderecosRepository;
         enderecosRepository.deleteById(id);
       }
   }
-
-
-

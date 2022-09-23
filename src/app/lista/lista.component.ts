@@ -1,5 +1,3 @@
-import { EnderecosService } from './../services/enderecos.service';
-import { Enderecos } from './../classes/enderecos';
 import { MonitoradorService } from './../services/monitorador.service';
 import { Monitorador } from './../classes/monitorador';
 import { Component, Input, OnInit } from '@angular/core';
@@ -17,13 +15,12 @@ export class ListaComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private monitoradorService: MonitoradorService,
-    private enderecosService: EnderecosService
+    private service: MonitoradorService,
 
   ) { }
 
   ngOnInit(): void {
-    this.monitoradorService.get().subscribe(monitorador =>{
+    this.service.get().subscribe(monitorador =>{
       this.monitorador = monitorador
       console.log(monitorador)
     })
@@ -34,7 +31,7 @@ export class ListaComponent implements OnInit {
   }
 
   onRemove(row: Monitorador){
-    this.monitoradorService.deleteMonitorador(row.id).subscribe();
-    this.enderecosService.deleteEnderecos(row.id).subscribe();
+    this.service.deleteMonitorador(row.id).subscribe();
+    this.service.deleteEnderecos(row.id).subscribe();
   }
 }
