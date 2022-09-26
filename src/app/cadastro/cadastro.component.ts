@@ -10,6 +10,9 @@ import { Enderecos } from '../classes/enderecos';
   styleUrls: ['./cadastro.component.css'],
 })
 export class CadastroComponent implements OnInit {
+
+  listaEndereco: Enderecos[] = [];
+
   monitorador: Monitorador = {
     nome: '',
     tipoPessoa: 'fisica',
@@ -45,11 +48,16 @@ export class CadastroComponent implements OnInit {
   onSubmit() {
     this.service.createMonitorador(this.monitorador).subscribe();
     this.service.createEnderecos(this.enderecos).subscribe();
-
     this.router.navigateByUrl('lista');
+    alert("Cadastro efetuado com sucesso!")
   }
 
   onCancel() {
     this.router.navigateByUrl('lista');
+  }
+
+  addEndereco(){
+    this.listaEndereco.push({...this.enderecos});
+    console.log(this.listaEndereco)
   }
 }

@@ -27,6 +27,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatIconModule} from '@angular/material/icon';
 import { EditarComponent } from './editar/editar.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 
@@ -55,7 +56,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSnackBarModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatStepperModule
+    MatStepperModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

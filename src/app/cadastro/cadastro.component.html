@@ -164,14 +164,19 @@
             />
           </ng-container>
         </form>
-        <button class="add-endereco" mat-button color="primary">
-          + Adicionar outro endereço</button
-        ><br />
+        <button #novoEndereco class="add-endereco" mat-button color="primary" (click)="addEndereco()" >
+          + Adicionar outro endereço</button>
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="">{{listaEndereco.length + 1}}</mat-button-toggle>
+
+          </mat-button-toggle-group>
+          <br />
 
         <button mat-raised-button matStepperPrevious>Voltar</button>
         <button mat-raised-button color="primary" (click)="onSubmit()">
           Salvar
         </button>
+          
       </mat-step>
     </mat-stepper>
   </mat-card>
@@ -182,3 +187,5 @@
   integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
   crossorigin="anonymous"
 ></script>
+
+
