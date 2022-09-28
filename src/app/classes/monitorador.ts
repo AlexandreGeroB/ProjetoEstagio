@@ -1,3 +1,5 @@
+import { Enderecos } from './enderecos';
+
 export interface Monitorador {
   id: number,
   tipoPessoa: string,
@@ -8,4 +10,5 @@ export interface Monitorador {
   cnpj?: string,
   inscricaoEstadual?: string,
   contato: string,
+  enderecos: Enderecos[]
 }

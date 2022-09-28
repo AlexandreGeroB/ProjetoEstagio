@@ -95,7 +95,7 @@
             maxlength="8"
             placeholder="Ex. 94105-984"
             name="cep"
-            [(ngModel)]="enderecos.cep"
+            [(ngModel)]="endereco.cep"
           />
           <label>Cidade</label>
           <input
@@ -103,14 +103,14 @@
             class="form-control"
             placeholder="Ex. San Francisco"
             name="cidade"
-            [(ngModel)]="enderecos.cidade"
+            [(ngModel)]="endereco.cidade"
           />
           <label>Estado</label>
           <select
             id="inputState"
             class="form-select"
             name="estado"
-            [(ngModel)]="enderecos.estado"
+            [(ngModel)]="endereco.estado"
           >
             <option>Acre - AC</option>
             <option>Alagoas - AL</option>
@@ -145,7 +145,7 @@
             type="text"
             class="form-control"
             name="end"
-            [(ngModel)]="enderecos.end"
+            [(ngModel)]="endereco.end"
           />
           <ng-container>
             <label>Bairro</label>
@@ -153,30 +153,34 @@
               type="text"
               class="form-control"
               name="bairro"
-              [(ngModel)]="enderecos.bairro"
+              [(ngModel)]="endereco.bairro"
             />
             <label>Numero</label>
             <input
               type="text"
               class="form-control"
               name="num"
-              [(ngModel)]="enderecos.num"
+              [(ngModel)]="endereco.num"
             />
           </ng-container>
         </form>
         <button #novoEndereco class="add-endereco" mat-button color="primary" (click)="addEndereco()" >
           + Adicionar outro endereço</button>
+         <!--
+
           <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
             <mat-button-toggle value="">{{listaEndereco.length + 1}}</mat-button-toggle>
 
           </mat-button-toggle-group>
+
+          -->
           <br />
 
         <button mat-raised-button matStepperPrevious>Voltar</button>
         <button mat-raised-button color="primary" (click)="onSubmit()">
           Salvar
         </button>
-          
+
       </mat-step>
     </mat-stepper>
   </mat-card>

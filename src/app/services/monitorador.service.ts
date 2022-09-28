@@ -48,8 +48,8 @@ export class MonitoradorService {
     return this.http.get<Enderecos>(url)
   }
 
-  putEnderecos(monitorador: Enderecos): Observable<Enderecos>{
-    return this.http.post<Enderecos>(this.urlEnderecos, monitorador)
+  putEnderecos(enderecos: Enderecos): Observable<Enderecos>{
+    return this.http.post<Enderecos>(this.urlEnderecos, enderecos)
   }
 
   deleteEnderecos(id: number){

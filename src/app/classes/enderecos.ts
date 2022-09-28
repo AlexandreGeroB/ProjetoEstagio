@@ -6,4 +6,5 @@ export interface Enderecos {
   bairro: string,
   cidade: string,
   estado: string,
+  monitorador:number
 }

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -36,4 +38,7 @@ public class Enderecos {
   @Column(nullable = false)
   private String estado;
 
+  @ManyToOne
+  @JoinColumn(nullable = false, name = "idmonitorador")
+  private Monitorador monitorador;
 }

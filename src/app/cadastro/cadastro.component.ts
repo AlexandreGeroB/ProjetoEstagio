@@ -1,8 +1,8 @@
+import { Enderecos } from './../classes/enderecos';
 import { Monitorador } from './../classes/monitorador';
 import { MonitoradorService } from './../services/monitorador.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Enderecos } from '../classes/enderecos';
 
 @Component({
   selector: 'app-cadastro',
@@ -11,7 +11,6 @@ import { Enderecos } from '../classes/enderecos';
 })
 export class CadastroComponent implements OnInit {
 
-  listaEndereco: Enderecos[] = [];
 
   monitorador: Monitorador = {
     nome: '',
@@ -23,9 +22,10 @@ export class CadastroComponent implements OnInit {
     inscricaoEstadual: '',
     contato: '',
     id: 0,
+    enderecos: []
   };
 
-  enderecos: Enderecos = {
+  endereco: Enderecos = {
     end: '',
     num: '',
     cep: '',
@@ -33,7 +33,9 @@ export class CadastroComponent implements OnInit {
     cidade: '',
     estado: '',
     id: 0,
+    monitorador: this.monitorador.id,
   };
+
 
   isLinear = false;
 
@@ -47,7 +49,7 @@ export class CadastroComponent implements OnInit {
 
   onSubmit() {
     this.service.createMonitorador(this.monitorador).subscribe();
-    this.service.createEnderecos(this.enderecos).subscribe();
+    //this.service.createEnderecos(this.enderecos).subscribe();
     this.router.navigateByUrl('lista');
     alert("Cadastro efetuado com sucesso!")
   }
@@ -57,7 +59,7 @@ export class CadastroComponent implements OnInit {
   }
 
   addEndereco(){
-    this.listaEndereco.push({...this.enderecos});
-    console.log(this.listaEndereco)
+    this.monitorador.enderecos.push(this.endereco);
+    console.log(this.monitorador.enderecos)
   }
 }

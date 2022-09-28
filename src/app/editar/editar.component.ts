@@ -20,11 +20,12 @@ export class EditarComponent implements OnInit {
     cnpj: '',
     inscricaoEstadual: '',
     contato: '',
-    id: 0
+    id: 0,
+    enderecos: []
   }
 
 
-  enderecos: Enderecos = {
+  endereco: Enderecos = {
     end: '',
     num: '',
     cep: '',
@@ -32,6 +33,7 @@ export class EditarComponent implements OnInit {
     cidade: '',
     estado: '',
     id: 0,
+    monitorador:0
   }
 
   isLinear = false;
@@ -47,8 +49,8 @@ export class EditarComponent implements OnInit {
     this.service.getByIdMonitorador(id).subscribe(monitorador => {
       this.monitorador = monitorador
     });
-    this.service.getByIdEnderecos(id).subscribe(enderecos => {
-      this.enderecos = enderecos
+    this.service.getByIdEnderecos(id).subscribe(endereco => {
+      this.endereco = endereco
     });
 
   }
@@ -56,7 +58,7 @@ export class EditarComponent implements OnInit {
   update(){
     this.service.putMonitorador(this.monitorador).subscribe(() =>{
       this.router.navigateByUrl('lista');
-      this.service.putEnderecos(this.enderecos).subscribe()
+      this.service.putEnderecos(this.endereco).subscribe()
     })
   }
 
