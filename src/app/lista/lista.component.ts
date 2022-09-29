@@ -32,6 +32,6 @@ export class ListaComponent implements OnInit {
 
   onRemove(row: Monitorador){
     this.service.deleteMonitorador(row.id).subscribe();
-    this.service.deleteEnderecos(row.id).subscribe();
+    //this.service.deleteEnderecos(row.id).subscribe();
   }
 }

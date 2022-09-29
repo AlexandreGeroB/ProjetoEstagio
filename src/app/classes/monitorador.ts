@@ -10,5 +10,4 @@ export interface Monitorador {
   cnpj?: string,
   inscricaoEstadual?: string,
   contato: string,
-  enderecos: Enderecos[]
 }

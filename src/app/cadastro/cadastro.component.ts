@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class CadastroComponent implements OnInit {
 
+  enderecos: Enderecos[] = [];
+
 
   monitorador: Monitorador = {
     nome: '',
@@ -22,7 +24,7 @@ export class CadastroComponent implements OnInit {
     inscricaoEstadual: '',
     contato: '',
     id: 0,
-    enderecos: []
+
   };
 
   endereco: Enderecos = {
@@ -49,7 +51,7 @@ export class CadastroComponent implements OnInit {
 
   onSubmit() {
     this.service.createMonitorador(this.monitorador).subscribe();
-    //this.service.createEnderecos(this.enderecos).subscribe();
+    this.service.createEnderecos(this.endereco).subscribe();
     this.router.navigateByUrl('lista');
     alert("Cadastro efetuado com sucesso!")
   }
@@ -59,7 +61,7 @@ export class CadastroComponent implements OnInit {
   }
 
   addEndereco(){
-    this.monitorador.enderecos.push(this.endereco);
-    console.log(this.monitorador.enderecos)
+    this.enderecos.push({...this.endereco});
+    console.log(this.enderecos)
   }
 }

@@ -21,7 +21,6 @@ export class EditarComponent implements OnInit {
     inscricaoEstadual: '',
     contato: '',
     id: 0,
-    enderecos: []
   }
 
 
@@ -49,16 +48,16 @@ export class EditarComponent implements OnInit {
     this.service.getByIdMonitorador(id).subscribe(monitorador => {
       this.monitorador = monitorador
     });
-    this.service.getByIdEnderecos(id).subscribe(endereco => {
-      this.endereco = endereco
-    });
+   // this.service.getByIdEnderecos(id).subscribe(endereco => {
+    //  this.endereco = endereco
+  //  });
 
   }
 
   update(){
     this.service.putMonitorador(this.monitorador).subscribe(() =>{
       this.router.navigateByUrl('lista');
-      this.service.putEnderecos(this.endereco).subscribe()
+      //this.service.putEnderecos(this.endereco).subscribe()
     })
   }
 
