@@ -39,7 +39,7 @@ export class MonitoradorService {
     return this.http.delete<Monitorador>(`${this.urlMonitorador}/${id}`);
   }
 
-  createEnderecos(enderecos:Enderecos){
+  createEnderecos(enderecos:Enderecos[]){
     return this.http.post<Enderecos>(this.urlEnderecos, enderecos)
   }
 

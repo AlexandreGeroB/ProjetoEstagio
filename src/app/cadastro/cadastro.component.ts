@@ -3,6 +3,7 @@ import { Monitorador } from './../classes/monitorador';
 import { MonitoradorService } from './../services/monitorador.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { generate } from 'rxjs';
 
 @Component({
   selector: 'app-cadastro',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class CadastroComponent implements OnInit {
 
-  enderecos: Enderecos[] = [];
+ enderecos!: Enderecos[]  ;
 
 
   monitorador: Monitorador = {
@@ -51,7 +52,7 @@ export class CadastroComponent implements OnInit {
 
   onSubmit() {
     this.service.createMonitorador(this.monitorador).subscribe();
-    this.service.createEnderecos(this.endereco).subscribe();
+    this.service.createEnderecos(this.enderecos).subscribe();
     this.router.navigateByUrl('lista');
     alert("Cadastro efetuado com sucesso!")
   }
