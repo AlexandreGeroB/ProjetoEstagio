@@ -2,6 +2,8 @@ import { MonitoradorService } from './../services/monitorador.service';
 import { Monitorador } from './../classes/monitorador';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-lista',
@@ -16,7 +18,7 @@ export class ListaComponent implements OnInit {
   constructor(
     private router: Router,
     private service: MonitoradorService,
-
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -33,5 +35,13 @@ export class ListaComponent implements OnInit {
   onRemove(row: Monitorador){
     this.service.deleteMonitorador(row.id).subscribe();
     //this.service.deleteEnderecos(row.id).subscribe();
+  }
+
+  openDialogDelete(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(DialogComponent, {
+      width: 'auto',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
   }
 }

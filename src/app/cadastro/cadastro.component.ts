@@ -3,7 +3,6 @@ import { Monitorador } from './../classes/monitorador';
 import { MonitoradorService } from './../services/monitorador.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { generate } from 'rxjs';
 
 @Component({
   selector: 'app-cadastro',
@@ -12,7 +11,7 @@ import { generate } from 'rxjs';
 })
 export class CadastroComponent implements OnInit {
 
- enderecos!: Enderecos[]  ;
+ enderecos: Enderecos[] = []  ;
 
 
   monitorador: Monitorador = {
@@ -25,7 +24,8 @@ export class CadastroComponent implements OnInit {
     inscricaoEstadual: '',
     contato: '',
     id: 0,
-
+    dataNascimento: '',
+    ativo: ''
   };
 
   endereco: Enderecos = {
@@ -54,6 +54,8 @@ export class CadastroComponent implements OnInit {
     this.service.createMonitorador(this.monitorador).subscribe();
     this.service.createEnderecos(this.enderecos).subscribe();
     this.router.navigateByUrl('lista');
+    console.log(this.monitorador);
+    console.log(this.enderecos);
     alert("Cadastro efetuado com sucesso!")
   }
 

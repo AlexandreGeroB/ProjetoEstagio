@@ -47,6 +47,13 @@
                 name="rg"
                 [(ngModel)]="monitorador.rg"
               />
+              <label>Data de Nascimento</label>
+              <input
+                type="date"
+                class="form-control"
+                name="dataNascimento"
+                [(ngModel)]="monitorador.dataNascimento"
+              />
             </div>
           </ng-container>
           <ng-container *ngIf="selectTipoPessoa.value == 'juridica'">
@@ -54,19 +61,20 @@
               <label>CNPJ</label>
               <input
                 class="form-control"
-                name="cpf"
+                name="cnpj"
                 [(ngModel)]="monitorador.cnpj"
               />
               <label>Inscrição Estadual</label>
               <input
                 class="form-control"
-                name="rg"
+                name="inscricaoEstadual"
                 [(ngModel)]="monitorador.inscricaoEstadual"
               />
             </div>
           </ng-container>
           <label>Email</label>
           <input
+            type="email"
             class="form-control"
             name="email"
             [(ngModel)]="monitorador.email"
@@ -77,6 +85,11 @@
             name="contato"
             [(ngModel)]="monitorador.contato"
           />
+          <mat-radio-group>
+            <label>O monitorador está ativo?</label><br>
+            <input type="radio" [(ngModel)]="monitorador.ativo" name="ativo" value="sim"/> Sim
+            <input type="radio" [(ngModel)]="monitorador.ativo" name="ativo" value="nao"/> Não
+          </mat-radio-group>
         </form>
 
         <button mat-raised-button (click)="onCancel()">Cancelar</button>

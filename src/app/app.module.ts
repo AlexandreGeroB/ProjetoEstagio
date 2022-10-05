@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -19,6 +20,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { DialogComponent } from './dialog/dialog.component';
 import { ListaComponent } from './lista/lista.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { MatCardModule} from '@angular/material/card';
@@ -28,6 +30,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { EditarComponent } from './editar/editar.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 
 
@@ -39,6 +43,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     ListaComponent,
     CadastroComponent,
     EditarComponent,
+    DialogComponent
+
   ],
   imports: [
     BrowserModule,
@@ -57,7 +63,9 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatStepperModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatDialogModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

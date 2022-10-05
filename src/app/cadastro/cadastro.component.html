@@ -32,6 +32,7 @@
             class="form-control"
             name="nome"
             [(ngModel)]="monitorador.nome"
+            required
           />
           <ng-container *ngIf="selectTipoPessoa.value == 'fisica'">
             <div>
@@ -40,12 +41,22 @@
                 class="form-control"
                 name="cpf"
                 [(ngModel)]="monitorador.cpf"
+                required
               />
               <label>RG</label>
               <input
                 class="form-control"
                 name="rg"
                 [(ngModel)]="monitorador.rg"
+                required
+              />
+              <label>Data de Nascimento</label>
+              <input
+                type="date"
+                class="form-control"
+                name="dataNascimento"
+                [(ngModel)]="monitorador.dataNascimento"
+                required
               />
             </div>
           </ng-container>
@@ -54,29 +65,39 @@
               <label>CNPJ</label>
               <input
                 class="form-control"
-                name="cpf"
+                name="cnpj"
                 [(ngModel)]="monitorador.cnpj"
+                required
               />
               <label>Inscrição Estadual</label>
               <input
                 class="form-control"
-                name="rg"
+                name="inscricaoEstadual"
                 [(ngModel)]="monitorador.inscricaoEstadual"
+                required
               />
             </div>
           </ng-container>
           <label>Email</label>
           <input
+            type="email"
             class="form-control"
             name="email"
             [(ngModel)]="monitorador.email"
+            required
           />
           <label>Contato</label>
           <input
             class="form-control"
             name="contato"
             [(ngModel)]="monitorador.contato"
+            required
           />
+          <mat-radio-group>
+            <label>O monitorador está ativo?</label><br>
+            <input type="radio" [(ngModel)]="monitorador.ativo" name="ativo" value="sim"/> Sim
+            <input type="radio" [(ngModel)]="monitorador.ativo" name="ativo" value="nao"/> Não
+          </mat-radio-group>
         </form>
 
         <button mat-raised-button (click)="onCancel()">Cancelar</button>
@@ -96,6 +117,7 @@
             placeholder="Ex. 94105-984"
             name="cep"
             [(ngModel)]="endereco.cep"
+            required
           />
           <label>Cidade</label>
           <input
@@ -104,6 +126,7 @@
             placeholder="Ex. San Francisco"
             name="cidade"
             [(ngModel)]="endereco.cidade"
+            required
           />
           <label>Estado</label>
           <select
@@ -111,6 +134,7 @@
             class="form-select"
             name="estado"
             [(ngModel)]="endereco.estado"
+            required
           >
             <option>Acre - AC</option>
             <option>Alagoas - AL</option>
@@ -154,6 +178,7 @@
               class="form-control"
               name="bairro"
               [(ngModel)]="endereco.bairro"
+              required
             />
             <label>Numero</label>
             <input
@@ -161,6 +186,7 @@
               class="form-control"
               name="num"
               [(ngModel)]="endereco.num"
+              required
             />
           </ng-container>
         </form>

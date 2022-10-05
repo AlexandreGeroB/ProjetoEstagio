@@ -34,3 +34,7 @@ select {
  .add-endereco{
   margin-bottom: 15px;
  }
+
+ .radio{
+  margin: 10px 0 15px 10px;
+}

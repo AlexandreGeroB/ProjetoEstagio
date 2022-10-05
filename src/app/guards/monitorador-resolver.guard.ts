@@ -16,6 +16,6 @@ export class MonitoradorResolverGuard implements Resolve<Monitorador> {
       return this.service.getByIdMonitorador(route.params['id']);
     }
 
-    return of({ id: 0 , nome: '', tipoPessoa: '', cpf: '', rg: '', cnpj: '', inscricaoEstadual: '', email: '', contato: '', enderecos: []});  }
+    return of({ id: 0 , nome: '', tipoPessoa: '', cpf: '', rg: '', cnpj: '', inscricaoEstadual: '', email: '', contato: '',dataNascimento:'',ativo:'', enderecos: []});  }
 
 }

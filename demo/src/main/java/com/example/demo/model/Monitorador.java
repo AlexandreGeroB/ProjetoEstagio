@@ -41,6 +41,10 @@ public class Monitorador{
   @Column(nullable = false)
   private String contato;
 
+  private String dataNascimento;
+
+  private String ativo;
+
   @OneToMany(mappedBy = "monitorador")
   @Column(name = "idmonitorador")
   private List<Enderecos> enderecos;

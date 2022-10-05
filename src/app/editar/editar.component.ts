@@ -21,6 +21,8 @@ export class EditarComponent implements OnInit {
     inscricaoEstadual: '',
     contato: '',
     id: 0,
+    dataNascimento: '',
+    ativo: ''
   }
 
 
