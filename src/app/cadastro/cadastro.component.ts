@@ -1,8 +1,8 @@
 import { Enderecos } from './../classes/enderecos';
-import { Monitorador } from './../classes/monitorador';
 import { MonitoradorService } from './../services/monitorador.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro',
@@ -13,48 +13,47 @@ export class CadastroComponent implements OnInit {
 
  enderecos: Enderecos[] = []  ;
 
-
-  monitorador: Monitorador = {
-    nome: '',
-    tipoPessoa: 'fisica',
-    cpf: '',
-    rg: '',
-    email: '',
-    cnpj: '',
-    inscricaoEstadual: '',
-    contato: '',
-    id: 0,
-    dataNascimento: '',
-    ativo: ''
-  };
-
-  endereco: Enderecos = {
-    end: '',
-    num: '',
-    cep: '',
-    bairro: '',
-    cidade: '',
-    estado: '',
-    id: 0,
-    monitorador: this.monitorador.id,
-  };
-
-
   isLinear = false;
 
+  public formMonitorador!: FormGroup;
+  public formEnderecos!: FormGroup;
 
   constructor(
     private router: Router,
     private service: MonitoradorService,
-  ) {}
+    private formBuilder: FormBuilder
+  ) {
 
-  ngOnInit() {}
+  }
+  ngOnInit() {
+    this.formMonitorador = this.formBuilder.group({
+      nome: ['', [Validators.required]],
+      tipoPessoa: ['fisica', [Validators.required]],
+      cpf: ['', [Validators.required]],
+      rg: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      cnpj: ['', [Validators.required]],
+      inscricaoEstadual: ['', [Validators.required]],
+      contato: ['', [Validators.required]],
+      dataNascimento: ['', [Validators.required]],
+      ativo: ['sim', [Validators.required]],
+    });
+
+    this.formEnderecos = this.formBuilder.group({
+    end: ['', [Validators.required]],
+    num: ['', [Validators.required]],
+    cep: ['', [Validators.required]],
+    bairro: ['', [Validators.required]],
+    cidade: ['', [Validators.required]],
+    estado: ['', [Validators.required]],
+    });
+  }
 
   onSubmit() {
-    this.service.createMonitorador(this.monitorador).subscribe();
+    this.service.createMonitorador(this.formMonitorador.value).subscribe();
     this.service.createEnderecos(this.enderecos).subscribe();
     this.router.navigateByUrl('lista');
-    console.log(this.monitorador);
+    console.log(this.formMonitorador);
     console.log(this.enderecos);
     alert("Cadastro efetuado com sucesso!")
   }
@@ -64,7 +63,7 @@ export class CadastroComponent implements OnInit {
   }
 
   addEndereco(){
-    this.enderecos.push({...this.endereco});
+    this.enderecos.push({...this.formEnderecos.value});
     console.log(this.enderecos)
   }
 }

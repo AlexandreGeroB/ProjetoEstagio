@@ -65,7 +65,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatStepperModule,
     MatButtonToggleModule,
     MatDialogModule,
-    MatRadioModule
+    MatRadioModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

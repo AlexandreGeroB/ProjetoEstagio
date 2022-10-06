@@ -12,13 +12,13 @@
       <mat-step>
         <ng-template matStepLabel>Monitorador</ng-template>
 
-        <form>
+        <form [formGroup]="formMonitorador">
           <label>Tipo de pessoa</label>
           <select
             #selectTipoPessoa
             class="form-select"
             name="tipoPessoa"
-            [(ngModel)]="monitorador.tipoPessoa"
+            formControlName="tipoPessoa"
           >
             <option value="fisica" selected>Pessoa Fisica</option>
             <option value="juridica">Pessoa Juridica</option>
@@ -31,7 +31,7 @@
           <input
             class="form-control"
             name="nome"
-            [(ngModel)]="monitorador.nome"
+            formControlName="nome"
           />
           <ng-container *ngIf="selectTipoPessoa.value == 'fisica'">
             <div>
@@ -39,20 +39,20 @@
               <input
                 class="form-control"
                 name="cpf"
-                [(ngModel)]="monitorador.cpf"
+                formControlName="cpf"
               />
               <label>RG</label>
               <input
                 class="form-control"
                 name="rg"
-                [(ngModel)]="monitorador.rg"
+                formControlName="rg"
               />
               <label>Data de Nascimento</label>
               <input
                 type="date"
                 class="form-control"
                 name="dataNascimento"
-                [(ngModel)]="monitorador.dataNascimento"
+                formControlName="dataNascimento"
               />
             </div>
           </ng-container>
@@ -62,13 +62,13 @@
               <input
                 class="form-control"
                 name="cnpj"
-                [(ngModel)]="monitorador.cnpj"
+                formControlName="cnpj"
               />
               <label>Inscrição Estadual</label>
               <input
                 class="form-control"
                 name="inscricaoEstadual"
-                [(ngModel)]="monitorador.inscricaoEstadual"
+                formControlName="inscricaoEstadual"
               />
             </div>
           </ng-container>
@@ -77,18 +77,18 @@
             type="email"
             class="form-control"
             name="email"
-            [(ngModel)]="monitorador.email"
+            formControlName="email"
           />
           <label>Contato</label>
           <input
             class="form-control"
             name="contato"
-            [(ngModel)]="monitorador.contato"
+            formControlName="contato"
           />
           <mat-radio-group>
             <label>O monitorador está ativo?</label><br>
-            <input type="radio" [(ngModel)]="monitorador.ativo" name="ativo" value="sim"/> Sim
-            <input type="radio" [(ngModel)]="monitorador.ativo" name="ativo" value="nao"/> Não
+            <input type="radio" formControlName="ativo" name="ativo" value="sim"/> Sim
+            <input type="radio" formControlName="ativo" name="ativo" value="nao"/> Não
           </mat-radio-group>
         </form>
 
@@ -99,7 +99,7 @@
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Endereços</ng-template>
-        <form>
+        <form [formGroup]="formEnderecos">
           <label>CEP</label>
           <input
             type="text"
@@ -108,7 +108,7 @@
             maxlength="8"
             placeholder="Ex. 94105-984"
             name="cep"
-            [(ngModel)]="endereco.cep"
+            formControlName="cep"
           />
           <label>Cidade</label>
           <input
@@ -116,14 +116,14 @@
             class="form-control"
             placeholder="Ex. San Francisco"
             name="cidade"
-            [(ngModel)]="endereco.cidade"
+            formControlName="cidade"
           />
           <label>Estado</label>
           <select
             id="inputState"
             class="form-select"
             name="estado"
-            [(ngModel)]="endereco.estado"
+            formControlName="estado"
           >
             <option>Acre - AC</option>
             <option>Alagoas - AL</option>
@@ -158,7 +158,7 @@
             type="text"
             class="form-control"
             name="end"
-            [(ngModel)]="endereco.end"
+            formControlName="end"
           />
           <ng-container>
             <label>Bairro</label>
@@ -166,14 +166,14 @@
               type="text"
               class="form-control"
               name="bairro"
-              [(ngModel)]="endereco.bairro"
+              formControlName="bairro"
             />
             <label>Numero</label>
             <input
               type="text"
               class="form-control"
               name="num"
-              [(ngModel)]="endereco.num"
+              formControlName="num"
             />
           </ng-container>
         </form>

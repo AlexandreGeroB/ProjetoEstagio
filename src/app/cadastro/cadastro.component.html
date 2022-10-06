@@ -12,13 +12,13 @@
       <mat-step>
         <ng-template matStepLabel>Monitorador</ng-template>
 
-        <form>
+        <form [formGroup]="formMonitorador">
           <label>Tipo de pessoa</label>
           <select
             #selectTipoPessoa
             class="form-select"
             name="tipoPessoa"
-            [(ngModel)]="monitorador.tipoPessoa"
+            formControlName="tipoPessoa"
           >
             <option value="fisica" selected>Pessoa Fisica</option>
             <option value="juridica">Pessoa Juridica</option>
@@ -31,8 +31,7 @@
           <input
             class="form-control"
             name="nome"
-            [(ngModel)]="monitorador.nome"
-            required
+            formControlName="nome"
           />
           <ng-container *ngIf="selectTipoPessoa.value == 'fisica'">
             <div>
@@ -40,24 +39,16 @@
               <input
                 class="form-control"
                 name="cpf"
-                [(ngModel)]="monitorador.cpf"
-                required
+                formControlName="cpf"
               />
+
               <label>RG</label>
               <input
                 class="form-control"
                 name="rg"
-                [(ngModel)]="monitorador.rg"
-                required
+                formControlName="rg"
               />
-              <label>Data de Nascimento</label>
-              <input
-                type="date"
-                class="form-control"
-                name="dataNascimento"
-                [(ngModel)]="monitorador.dataNascimento"
-                required
-              />
+
             </div>
           </ng-container>
           <ng-container *ngIf="selectTipoPessoa.value == 'juridica'">
@@ -66,37 +57,40 @@
               <input
                 class="form-control"
                 name="cnpj"
-                [(ngModel)]="monitorador.cnpj"
-                required
+                formControlName="cnpj"
               />
               <label>Inscrição Estadual</label>
               <input
                 class="form-control"
                 name="inscricaoEstadual"
-                [(ngModel)]="monitorador.inscricaoEstadual"
-                required
+                formControlName="inscricaoEstadual"
               />
             </div>
           </ng-container>
+          <label>Data de Nascimento</label>
+              <input
+                type="date"
+                class="form-control"
+                name="dataNascimento"
+                formControlName="dataNascimento"
+              />
           <label>Email</label>
           <input
             type="email"
             class="form-control"
             name="email"
-            [(ngModel)]="monitorador.email"
-            required
+            formControlName="email"
           />
           <label>Contato</label>
           <input
             class="form-control"
             name="contato"
-            [(ngModel)]="monitorador.contato"
-            required
+            formControlName="contato"
           />
           <mat-radio-group>
             <label>O monitorador está ativo?</label><br>
-            <input type="radio" [(ngModel)]="monitorador.ativo" name="ativo" value="sim"/> Sim
-            <input type="radio" [(ngModel)]="monitorador.ativo" name="ativo" value="nao"/> Não
+            <input type="radio" formControlName="ativo" name="ativo" value="sim"/> Sim
+            <input type="radio" formControlName="ativo" name="ativo" value="nao"/> Não
           </mat-radio-group>
         </form>
 
@@ -107,7 +101,7 @@
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Endereços</ng-template>
-        <form>
+        <form [formGroup]="formEnderecos">
           <label>CEP</label>
           <input
             type="text"
@@ -116,8 +110,7 @@
             maxlength="8"
             placeholder="Ex. 94105-984"
             name="cep"
-            [(ngModel)]="endereco.cep"
-            required
+            formControlName="cep"
           />
           <label>Cidade</label>
           <input
@@ -125,16 +118,14 @@
             class="form-control"
             placeholder="Ex. San Francisco"
             name="cidade"
-            [(ngModel)]="endereco.cidade"
-            required
+            formControlName="cidade"
           />
           <label>Estado</label>
           <select
             id="inputState"
             class="form-select"
             name="estado"
-            [(ngModel)]="endereco.estado"
-            required
+            formControlName="estado"
           >
             <option>Acre - AC</option>
             <option>Alagoas - AL</option>
@@ -169,7 +160,7 @@
             type="text"
             class="form-control"
             name="end"
-            [(ngModel)]="endereco.end"
+            formControlName="end"
           />
           <ng-container>
             <label>Bairro</label>
@@ -177,29 +168,20 @@
               type="text"
               class="form-control"
               name="bairro"
-              [(ngModel)]="endereco.bairro"
-              required
+              formControlName="bairro"
             />
             <label>Numero</label>
             <input
               type="text"
               class="form-control"
               name="num"
-              [(ngModel)]="endereco.num"
-              required
+              formControlName="num"
             />
           </ng-container>
         </form>
         <button #novoEndereco class="add-endereco" mat-button color="primary" (click)="addEndereco()" >
           + Adicionar outro endereço</button>
-         <!--
 
-          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-            <mat-button-toggle value="">{{listaEndereco.length + 1}}</mat-button-toggle>
-
-          </mat-button-toggle-group>
-
-          -->
           <br />
 
         <button mat-raised-button matStepperPrevious>Voltar</button>

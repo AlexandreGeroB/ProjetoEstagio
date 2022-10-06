@@ -1,8 +1,8 @@
-import { Monitorador } from './../classes/monitorador';
 import { MonitoradorService } from './../services/monitorador.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Enderecos } from '../classes/enderecos';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-editar',
@@ -11,53 +11,55 @@ import { Enderecos } from '../classes/enderecos';
 })
 export class EditarComponent implements OnInit {
 
-  monitorador: Monitorador = {
-    nome: '',
-    tipoPessoa: '',
-    cpf: '',
-    rg: '',
-    email: '',
-    cnpj: '',
-    inscricaoEstadual: '',
-    contato: '',
-    id: 0,
-    dataNascimento: '',
-    ativo: ''
-  }
-
-
-  endereco: Enderecos = {
-    end: '',
-    num: '',
-    cep: '',
-    bairro: '',
-    cidade: '',
-    estado: '',
-    id: 0,
-    monitorador:0
-  }
+  enderecos: Enderecos[] = []  ;
 
   isLinear = false;
 
-  constructor(
-    private service: MonitoradorService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) { }
+  public formMonitorador!: FormGroup;
+  public formEnderecos!: FormGroup;
 
-  ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id')
+  constructor(
+    private router: Router,
+    private service: MonitoradorService,
+    private formBuilder: FormBuilder
+  ) {
+
+  }
+  ngOnInit() {
+    this.formMonitorador = this.formBuilder.group({
+      nome: [''],
+      tipoPessoa: ['fisica'],
+      cpf: [''],
+      rg: [''],
+      email: [''],
+      cnpj: [''],
+      inscricaoEstadual: [''],
+      contato: [''],
+      dataNascimento: [''],
+      ativo: [''],
+    });
+
+    this.formEnderecos = this.formBuilder.group({
+    end: [''],
+    num: [''],
+    cep: [''],
+    bairro: [''],
+    cidade: [''],
+    estado: [''],
+    });
+  }
+
+   /* const id = this.route.snapshot.paramMap.get('id')
     this.service.getByIdMonitorador(id).subscribe(monitorador => {
       this.monitorador = monitorador
     });
-   // this.service.getByIdEnderecos(id).subscribe(endereco => {
-    //  this.endereco = endereco
-  //  });
-
-  }
+    this.service.getByIdEnderecos(id).subscribe(endereco => {
+     this.endereco = endereco
+    });
+    */
 
   update(){
-    this.service.putMonitorador(this.monitorador).subscribe(() =>{
+    this.service.putMonitorador(this.formMonitorador.value).subscribe(() =>{
       this.router.navigateByUrl('lista');
       //this.service.putEnderecos(this.endereco).subscribe()
     })
