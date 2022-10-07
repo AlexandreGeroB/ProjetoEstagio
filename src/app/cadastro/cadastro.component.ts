@@ -29,11 +29,11 @@ export class CadastroComponent implements OnInit {
     this.formMonitorador = this.formBuilder.group({
       nome: ['', [Validators.required]],
       tipoPessoa: ['fisica', [Validators.required]],
-      cpf: ['', [Validators.required]],
-      rg: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      cnpj: ['', [Validators.required]],
-      inscricaoEstadual: ['', [Validators.required]],
+      cpf: ['', [Validators.required, Validators.minLength(11),Validators.maxLength(11)]],
+      rg: ['', [Validators.required, Validators.minLength(6),Validators.maxLength(6)]],
+      email: ['', [Validators.required, Validators.email]],
+      cnpj: ['', [Validators.required, Validators.minLength(14),Validators.maxLength(14)]],
+      inscricaoEstadual: ['', [Validators.required,Validators.maxLength(14)]],
       contato: ['', [Validators.required]],
       dataNascimento: ['', [Validators.required]],
       ativo: ['sim', [Validators.required]],
@@ -41,8 +41,8 @@ export class CadastroComponent implements OnInit {
 
     this.formEnderecos = this.formBuilder.group({
     end: ['', [Validators.required]],
-    num: ['', [Validators.required]],
-    cep: ['', [Validators.required]],
+    num: ['', [Validators.required, Validators.maxLength(5)]],
+    cep: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
     bairro: ['', [Validators.required]],
     cidade: ['', [Validators.required]],
     estado: ['', [Validators.required]],
