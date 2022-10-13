@@ -10,7 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatDialogModule} from '@angular/material/dialog';
-
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 
@@ -20,7 +20,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { DialogComponent } from './dialog/dialog.component';
 import { ListaComponent } from './lista/lista.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { MatCardModule} from '@angular/material/card';
@@ -43,7 +42,6 @@ import {MatRadioModule} from '@angular/material/radio';
     ListaComponent,
     CadastroComponent,
     EditarComponent,
-    DialogComponent
 
   ],
   imports: [
@@ -66,7 +64,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatButtonToggleModule,
     MatDialogModule,
     MatRadioModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
