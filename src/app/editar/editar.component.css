@@ -27,6 +27,14 @@ select {
   margin-bottom: 10px;
  }
 
- mat-radio-button{
-  margin: 10px 10px 10px 0;
+ h3{
+  margin: 15px 0;
+ }
+
+ .add-endereco{
+  margin-bottom: 15px;
+ }
+
+ .radio{
+  margin: 10px 0 15px 10px;
 }

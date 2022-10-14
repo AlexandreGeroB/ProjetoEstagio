@@ -1,8 +1,8 @@
 import { MonitoradorService } from './../services/monitorador.service';
 import { Monitorador } from './../classes/monitorador';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  TemplateRef,  ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-lista',
@@ -12,12 +12,12 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 export class ListaComponent implements OnInit {
 
   monitorador: Monitorador[] = [];
-  displayedColumns = ['nome','cpf','rg','email','contato', 'action']
+  displayedColumns = ['nome','cpf','rg','email','contato', 'action'];
+
 
   constructor(
     private router: Router,
     private service: MonitoradorService,
-    private modalService: BsModalService,
   ) { }
 
   ngOnInit(): void {
@@ -31,8 +31,11 @@ export class ListaComponent implements OnInit {
     this.router.navigateByUrl('lista/cadastro')
   }
 
-
-
+  /*
+  onDelete(row: Monitorador){
+    this.deleteModalRef = this.modalService.show(this.deleteModal, {class: 'modal-sm'})
+  }
+*/
   onRemove(row: Monitorador){
     this.service.deleteMonitorador(row.id).subscribe();
     //this.service.deleteEnderecos(row.id).subscribe();

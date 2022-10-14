@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 
@@ -30,7 +31,6 @@ import { EditarComponent } from './editar/editar.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatRadioModule} from '@angular/material/radio';
-
 
 
 
@@ -65,7 +65,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatDialogModule,
     MatRadioModule,
     ReactiveFormsModule,
-    ModalModule
+    ModalModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

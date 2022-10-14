@@ -8,7 +8,9 @@
 <div class="container">
   <mat-card>
   <button mat-raised-button color="primary" (click)="onAdd()">Adicionar</button>
+  
   <table mat-table [dataSource]="monitorador">
+
 
 
 
@@ -43,10 +45,19 @@
         <mat-icon>edit</mat-icon>
 
       </a>
-      <a routerLink="" (click)="onRemove(row)">
+      <a routerLink="" [swal]="{
+        title: 'ATENÇÃO',
+        text: 'Tem certeza que deseja excluir: ' + row.nome + '?',
+        showDenyButton: true,
+        denyButtonText: 'Não',
+        confirmButtonText:'Sim',
+        icon: 'warning'
+      }"
+      (confirm)="onRemove(row)">
         <mat-icon>delete</mat-icon>
       </a>
-      <a routerLink="">
+      <a routerLink=""
+      >
         <mat-icon>file_open</mat-icon>
       </a>
     </td>
@@ -58,14 +69,6 @@
   </mat-card>
 </div>
 
-
-<ng-template #delete>
-  <div class="modal-body text-center">
-    <p>Do you want to confirm?</p>
-    <button type="button" class="btn btn-default" >Yes</button>
-    <button type="button" class="btn btn-primary" >No</button>
-  </div>
-</ng-template>
 
 <script
   src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
