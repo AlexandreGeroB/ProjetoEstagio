@@ -12,6 +12,9 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import {MatSelectModule} from '@angular/material/select';
+import { NgxMaskModule } from 'ngx-mask'
+
 
 
 
@@ -46,6 +49,7 @@ import {MatRadioModule} from '@angular/material/radio';
   ],
   imports: [
     BrowserModule,
+    MatSelectModule,
     MatToolbarModule,
     MatButtonModule,
     AppRoutingModule,
@@ -66,7 +70,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatRadioModule,
     ReactiveFormsModule,
     ModalModule,
-    SweetAlert2Module.forRoot()
+    SweetAlert2Module.forRoot(),
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

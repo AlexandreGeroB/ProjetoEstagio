@@ -25,10 +25,11 @@ export class CadastroComponent implements OnInit {
   ) {
 
   }
-  ngOnInit() {
+  ngOnInit(): void {
     this.formMonitorador = this.formBuilder.group({
+      id: [0],
       nome: ['', [Validators.required]],
-      tipoPessoa: ['fisica', [Validators.required]],
+      tipoPessoa: ['fisica'],
       cpf: ['', [Validators.required, Validators.minLength(11),Validators.maxLength(11)]],
       rg: ['', [Validators.required, Validators.minLength(6),Validators.maxLength(6)]],
       email: ['', [Validators.required, Validators.email]],

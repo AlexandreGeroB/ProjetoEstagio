@@ -8,7 +8,7 @@
 <div class="container">
   <mat-card>
   <button mat-raised-button color="primary" (click)="onAdd()">Adicionar</button>
-  
+
   <table mat-table [dataSource]="monitorador">
 
 
@@ -37,6 +37,12 @@
       <th mat-header-cell *matHeaderCellDef>Contato</th>
       <td mat-cell *matCellDef="let row">{{row.contato}}</td>
     </ng-container>
+
+    <ng-container matColumnDef="ativo">
+      <th mat-header-cell *matHeaderCellDef>Ativo</th>
+      <td mat-cell *matCellDef="let row">{{row.ativo}}</td>
+    </ng-container>
+
 
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef>Ações</th>

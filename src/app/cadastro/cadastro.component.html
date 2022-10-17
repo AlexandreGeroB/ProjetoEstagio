@@ -13,85 +13,129 @@
         <ng-template matStepLabel>Monitorador</ng-template>
 
         <form [formGroup]="formMonitorador">
-          <label>Tipo de pessoa</label>
-          <select
+
+        <mat-form-field>
+
+          <mat-label>Tipo de pessoa</mat-label>
+          <mat-select
             #selectTipoPessoa
-            class="form-select"
             name="tipoPessoa"
             formControlName="tipoPessoa"
           >
-            <option value="fisica" selected>Pessoa Fisica</option>
-            <option value="juridica">Pessoa Juridica</option>
-          </select>
+            <mat-option value="fisica" selected>Pessoa Fisica</mat-option>
+            <mat-option value="juridica">Pessoa Juridica</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-          <label *ngIf="selectTipoPessoa.value == 'fisica'">Nome</label>
-          <label *ngIf="selectTipoPessoa.value == 'juridica'"
-            >Razão Social</label
+
+          <mat-form-field>
+          <mat-label *ngIf="selectTipoPessoa.value == 'fisica'">Nome</mat-label>
+          <mat-label *ngIf="selectTipoPessoa.value == 'juridica'"
+            >Razão Social</mat-label
           >
-          <input
-            class="form-control"
+
+          <input matInput
             name="nome"
             formControlName="nome"
           />
+          <div class="obrigatorio-erro" *ngIf="selectTipoPessoa.value == 'fisica' && formMonitorador.get('nome')?.errors?.['required'] && formMonitorador.get('nome')?.touched">
+            Nome é obrigatório
+          </div>
+          <div class="obrigatorio-erro" *ngIf="selectTipoPessoa.value == 'juridica' && formMonitorador.get('nome')?.errors?.['required'] && formMonitorador.get('nome')?.touched">
+            Razão Social é obrigatório
+          </div>
+
+        </mat-form-field>
+
+
+
           <ng-container *ngIf="selectTipoPessoa.value == 'fisica'">
-            <div>
-              <label>CPF</label>
-              <input
-                class="form-control"
+            <mat-form-field>
+              <mat-label>CPF</mat-label>
+              <input matInput
                 name="cpf"
                 formControlName="cpf"
+                mask="000.000.000-00"
               />
-
-              <label>RG</label>
-              <input
-                class="form-control"
+              <div class="obrigatorio-erro" *ngIf="formMonitorador.get('cpf')?.errors?.['required'] && formMonitorador.get('cpf')?.touched">
+                Cpf é obrigatório
+              </div>
+            </mat-form-field>
+          <mat-form-field>
+            <mat-label>RG</mat-label>
+              <input matInput
                 name="rg"
                 formControlName="rg"
+                mask="0000000"
               />
-
-            </div>
+              <div class="obrigatorio-erro" *ngIf="formMonitorador.get('rg')?.errors?.['required'] && formMonitorador.get('rg')?.touched">
+                RG é obrigatório
+              </div>
+            </mat-form-field>
           </ng-container>
+
           <ng-container *ngIf="selectTipoPessoa.value == 'juridica'">
-            <div>
-              <label>CNPJ</label>
-              <input
-                class="form-control"
+          <mat-form-field>
+              <mat-label>CNPJ</mat-label>
+              <input matInput
                 name="cnpj"
                 formControlName="cnpj"
+                mask="00.000.000/0000-00"
               />
-              <label>Inscrição Estadual</label>
-              <input
-                class="form-control"
+              <div class="obrigatorio-erro" *ngIf="formMonitorador.get('cnpj')?.errors?.['required'] && formMonitorador.get('cnpj')?.touched">
+                CNPJ é obrigatório
+              </div>
+            </mat-form-field>
+          <mat-form-field>
+              <mat-label>Inscrição Estadual</mat-label>
+              <input matInput
                 name="inscricaoEstadual"
                 formControlName="inscricaoEstadual"
-              />
-            </div>
+                mask="000.000.000.000"
+                />
+                <div class="obrigatorio-erro" *ngIf="formMonitorador.get('inscricaoEstadual')?.errors?.['required'] && formMonitorador.get('inscricaoEstadual')?.touched">
+                  Inscricao Estadual é obrigatório
+                </div>
+            </mat-form-field>
           </ng-container>
-          <label>Data de Nascimento</label>
-              <input
+
+        <mat-form-field>
+          <mat-label>Data de Nascimento</mat-label>
+              <input matInput
                 type="date"
-                class="form-control"
                 name="dataNascimento"
                 formControlName="dataNascimento"
               />
-          <label>Email</label>
-          <input
+              <div class="obrigatorio-erro" *ngIf="formMonitorador.get('dataNascimento')?.errors?.['required'] && formMonitorador.get('dataNascimento')?.touched">
+                Data de Nascimento é obrigatório
+              </div>
+            </mat-form-field>
+          <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput
             type="email"
-            class="form-control"
             name="email"
             formControlName="email"
           />
-          <label>Contato</label>
-          <input
-            class="form-control"
+          <div class="obrigatorio-erro" *ngIf="formMonitorador.get('email')?.errors?.['required'] && formMonitorador.get('email')?.touched">
+            Email é obrigatório
+          </div>
+        </mat-form-field>
+      <mat-form-field>
+          <mat-label>Contato</mat-label>
+          <input matInput
             name="contato"
             formControlName="contato"
           />
+        </mat-form-field>
+
           <mat-radio-group>
             <label>O monitorador está ativo?</label><br>
             <input type="radio" formControlName="ativo" name="ativo" value="sim"/> Sim
             <input type="radio" formControlName="ativo" name="ativo" value="nao"/> Não
           </mat-radio-group>
+
+
         </form>
 
         <button mat-raised-button (click)="onCancel()">Cancelar</button>
@@ -102,81 +146,102 @@
       <mat-step>
         <ng-template matStepLabel>Endereços</ng-template>
         <form [formGroup]="formEnderecos">
-          <label>CEP</label>
-          <input
+        <mat-form-field>
+
+          <mat-label>CEP</mat-label>
+          <input matInput
             type="text"
-            class="form-control"
             minlength="8"
             maxlength="8"
             placeholder="Ex. 94105-984"
             name="cep"
             formControlName="cep"
           />
-          <label>Cidade</label>
-          <input
+        </mat-form-field>
+
+      <mat-form-field>
+
+          <mat-label>Cidade</mat-label>
+          <input matInput
             type="text"
-            class="form-control"
             placeholder="Ex. San Francisco"
             name="cidade"
             formControlName="cidade"
           />
-          <label>Estado</label>
-          <select
-            id="inputState"
-            class="form-select"
+        </mat-form-field>
+
+      <mat-form-field>
+
+          <mat-label>Estado</mat-label>
+          <mat-select
             name="estado"
             formControlName="estado"
           >
-            <option>Acre - AC</option>
-            <option>Alagoas - AL</option>
-            <option>Amapá - AP</option>
-            <option>Amazonas - AM</option>
-            <option>Bahia - BA</option>
-            <option>Ceará - CE</option>
-            <option>Distrito Federal - DF</option>
-            <option>Espírito Santo - ES</option>
-            <option>Goiás - GO</option>
-            <option>Maranhão - MA</option>
-            <option>Mato Grosso - MT</option>
-            <option>Mato Grosso do Sul - MS</option>
-            <option>Minas Gerais - MG</option>
-            <option>Pará - PA</option>
-            <option>Paraíba - PB</option>
-            <option>Paraná - PR</option>
-            <option>Pernambuco - PE</option>
-            <option>Piauí - PI</option>
-            <option>Rio de Janeiro - RJ</option>
-            <option>Rio Grande do Norte - RN</option>
-            <option>Rio Grande do Sul - RS</option>
-            <option>Rondônia - RO</option>
-            <option>Roraima - RR</option>
-            <option>Santa Catarina - SC</option>
-            <option>São Paulo - SP</option>
-            <option>Sergipe - SE</option>
-            <option>Tocantins - TO</option>
-          </select>
-          <label>Endereço</label>
-          <input
+            <mat-option>Acre - AC</mat-option>
+            <mat-option>Alagoas - AL</mat-option>
+            <mat-option>Amapá - AP</mat-option>
+            <mat-option>Amazonas - AM</mat-option>
+            <mat-option>Bahia - BA</mat-option>
+            <mat-option>Ceará - CE</mat-option>
+            <mat-option>Distrito Federal - DF</mat-option>
+            <mat-option>Espírito Santo - ES</mat-option>
+            <mat-option>Goiás - GO</mat-option>
+            <mat-option>Maranhão - MA</mat-option>
+            <mat-option>Mato Grosso - MT</mat-option>
+            <mat-option>Mato Grosso do Sul - MS</mat-option>
+            <mat-option>Minas Gerais - MG</mat-option>
+            <mat-option>Pará - PA</mat-option>
+            <mat-option>Paraíba - PB</mat-option>
+            <mat-option>Paraná - PR</mat-option>
+            <mat-option>Pernambuco - PE</mat-option>
+            <mat-option>Piauí - PI</mat-option>
+            <mat-option>Rio de Janeiro - RJ</mat-option>
+            <mat-option>Rio Grande do Norte - RN</mat-option>
+            <mat-option>Rio Grande do Sul - RS</mat-option>
+            <mat-option>Rondônia - RO</mat-option>
+            <mat-option>Roraima - RR</mat-option>
+            <mat-option>Santa Catarina - SC</mat-option>
+            <mat-option>São Paulo - SP</mat-option>
+            <mat-option>Sergipe - SE</mat-option>
+            <mat-option>Tocantins - TO</mat-option>
+
+          </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field>
+
+          <mat-label>Endereço</mat-label>
+          <input matInput
             type="text"
-            class="form-control"
             name="end"
             formControlName="end"
           />
+
+        </mat-form-field>
+
           <ng-container>
-            <label>Bairro</label>
-            <input
+
+            <mat-form-field>
+
+            <mat-label>Bairro</mat-label>
+            <input matInput
               type="text"
-              class="form-control"
               name="bairro"
               formControlName="bairro"
             />
-            <label>Numero</label>
-            <input
+          </mat-form-field>
+
+        <mat-form-field>
+
+            <mat-label>Numero</mat-label>
+            <input matInput
               type="text"
-              class="form-control"
               name="num"
               formControlName="num"
             />
+          </mat-form-field>
+
           </ng-container>
         </form>
         <button #novoEndereco class="add-endereco" mat-button color="primary" (click)="addEndereco()" >
@@ -185,7 +250,7 @@
           <br />
 
         <button mat-raised-button matStepperPrevious>Voltar</button>
-        <button mat-raised-button color="primary" (click)="onSubmit()">
+        <button mat-raised-button [disabled]="!formMonitorador.valid && !formEnderecos.valid"  color="primary" (click)="onSubmit()">
           Salvar
         </button>
 

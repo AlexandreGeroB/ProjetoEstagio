@@ -1,8 +1,7 @@
 import { MonitoradorService } from './../services/monitorador.service';
 import { Monitorador } from './../classes/monitorador';
-import { Component, OnInit,  TemplateRef,  ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-lista',
@@ -12,7 +11,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 export class ListaComponent implements OnInit {
 
   monitorador: Monitorador[] = [];
-  displayedColumns = ['nome','cpf','rg','email','contato', 'action'];
+  displayedColumns = ['nome','cpf','rg','email','contato','ativo', 'action'];
 
 
   constructor(
