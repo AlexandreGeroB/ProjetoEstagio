@@ -13,170 +13,257 @@
         <ng-template matStepLabel>Monitorador</ng-template>
 
         <form [formGroup]="formMonitorador">
-          <label>Tipo de pessoa</label>
-          <select
-            #selectTipoPessoa
-            class="form-select"
-            name="tipoPessoa"
-            formControlName="tipoPessoa"
-          >
-            <option value="fisica" selected>Pessoa Fisica</option>
-            <option value="juridica">Pessoa Juridica</option>
-          </select>
 
-          <label *ngIf="selectTipoPessoa.value == 'fisica'">Nome</label>
-          <label *ngIf="selectTipoPessoa.value == 'juridica'"
-            >Razão Social</label
-          >
-          <input matInput
-            class="form-control"
-            name="nome"
-            formControlName="nome"
-          />
-          <ng-container *ngIf="selectTipoPessoa.value == 'fisica'">
-            <div>
-              <label>CPF</label>
-              <input
-                class="form-control"
-                name="cpf"
-                formControlName="cpf"
-              />
-              <label>RG</label>
-              <input
-                class="form-control"
-                name="rg"
-                formControlName="rg"
-              />
-              <label>Data de Nascimento</label>
-              <input
-                type="date"
-                class="form-control"
-                name="dataNascimento"
-                formControlName="dataNascimento"
-              />
-            </div>
-          </ng-container>
-          <ng-container *ngIf="selectTipoPessoa.value == 'juridica'">
-            <div>
-              <label>CNPJ</label>
-              <input
-                class="form-control"
-                name="cnpj"
-                formControlName="cnpj"
-              />
-              <label>Inscrição Estadual</label>
-              <input
-                class="form-control"
-                name="inscricaoEstadual"
-                formControlName="inscricaoEstadual"
-              />
-            </div>
-          </ng-container>
-          <label>Email</label>
-          <input
-            type="email"
-            class="form-control"
-            name="email"
-            formControlName="email"
-          />
-          <label>Contato</label>
-          <input
-            class="form-control"
-            name="contato"
-            formControlName="contato"
-          />
-          <mat-radio-group>
-            <label>O monitorador está ativo?</label><br>
-            <input type="radio" formControlName="ativo" name="ativo" value="sim"/> Sim
-            <input type="radio" formControlName="ativo" name="ativo" value="nao"/> Não
-          </mat-radio-group>
-        </form>
+          <mat-form-field>
 
-        <button mat-raised-button (click)="onCancel()">Cancelar</button>
-        <button mat-raised-button color="primary" matStepperNext>
-          Próximo
-        </button>
-      </mat-step>
-      <mat-step>
-        <ng-template matStepLabel>Endereços</ng-template>
-        <form [formGroup]="formEnderecos">
-          <label>CEP</label>
-          <input
-            type="text"
-            class="form-control"
-            minlength="8"
-            maxlength="8"
-            placeholder="Ex. 94105-984"
-            name="cep"
-            formControlName="cep"
-          />
-          <label>Cidade</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Ex. San Francisco"
-            name="cidade"
-            formControlName="cidade"
-          />
-          <label>Estado</label>
-          <select
-            id="inputState"
-            class="form-select"
-            name="estado"
-            formControlName="estado"
-          >
-            <option>Acre - AC</option>
-            <option>Alagoas - AL</option>
-            <option>Amapá - AP</option>
-            <option>Amazonas - AM</option>
-            <option>Bahia - BA</option>
-            <option>Ceará - CE</option>
-            <option>Distrito Federal - DF</option>
-            <option>Espírito Santo - ES</option>
-            <option>Goiás - GO</option>
-            <option>Maranhão - MA</option>
-            <option>Mato Grosso - MT</option>
-            <option>Mato Grosso do Sul - MS</option>
-            <option>Minas Gerais - MG</option>
-            <option>Pará - PA</option>
-            <option>Paraíba - PB</option>
-            <option>Paraná - PR</option>
-            <option>Pernambuco - PE</option>
-            <option>Piauí - PI</option>
-            <option>Rio de Janeiro - RJ</option>
-            <option>Rio Grande do Norte - RN</option>
-            <option>Rio Grande do Sul - RS</option>
-            <option>Rondônia - RO</option>
-            <option>Roraima - RR</option>
-            <option>Santa Catarina - SC</option>
-            <option>São Paulo - SP</option>
-            <option>Sergipe - SE</option>
-            <option>Tocantins - TO</option>
-          </select>
-          <label>Endereço</label>
-          <input
-            type="text"
-            class="form-control"
-            name="end"
-            formControlName="end"
-          />
-          <ng-container>
-            <label>Bairro</label>
-            <input
-              type="text"
-              class="form-control"
-              name="bairro"
-              formControlName="bairro"
+            <mat-label>Tipo de pessoa</mat-label>
+            <mat-select
+              #selectTipoPessoa
+              name="tipoPessoa"
+              formControlName="tipoPessoa"
+            >
+              <mat-option value="fisica" selected>Pessoa Fisica</mat-option>
+              <mat-option value="juridica">Pessoa Juridica</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+            <mat-form-field>
+            <mat-label *ngIf="selectTipoPessoa.value == 'fisica'">Nome</mat-label>
+            <mat-label *ngIf="selectTipoPessoa.value == 'juridica'"
+              >Razão Social</mat-label
+            >
+
+            <input matInput
+              name="nome"
+              formControlName="nome"
             />
-            <label>Numero</label>
-            <input
-              type="text"
-              class="form-control"
-              name="num"
-              formControlName="num"
+            <div class="obrigatorio-erro" *ngIf="selectTipoPessoa.value == 'fisica' && formMonitorador.get('nome')?.errors?.['required'] && formMonitorador.get('nome')?.touched">
+              Nome é obrigatório
+            </div>
+            <div class="obrigatorio-erro" *ngIf="selectTipoPessoa.value == 'juridica' && formMonitorador.get('nome')?.errors?.['required'] && formMonitorador.get('nome')?.touched">
+              Razão Social é obrigatório
+            </div>
+
+          </mat-form-field>
+
+
+
+            <ng-container *ngIf="selectTipoPessoa.value == 'fisica'">
+              <mat-form-field>
+                <mat-label>CPF</mat-label>
+                <input matInput
+                  name="cpf"
+                  formControlName="cpf"
+                  mask="000.000.000-00"
+                />
+                <div class="obrigatorio-erro" *ngIf="formMonitorador.get('cpf')?.errors?.['required'] && formMonitorador.get('cpf')?.touched">
+                  Cpf é obrigatório
+                </div>
+
+              </mat-form-field>
+            <mat-form-field>
+              <mat-label>RG</mat-label>
+                <input matInput
+                  name="rg"
+                  formControlName="rg"
+                  mask="0000000"
+                />
+                <div class="obrigatorio-erro" *ngIf="formMonitorador.get('rg')?.errors?.['required'] && formMonitorador.get('rg')?.touched">
+                  RG é obrigatório
+                </div>
+              </mat-form-field>
+            </ng-container>
+
+            <ng-container *ngIf="selectTipoPessoa.value == 'juridica'">
+            <mat-form-field>
+                <mat-label>CNPJ</mat-label>
+                <input matInput
+                  name="cnpj"
+                  formControlName="cnpj"
+                  mask="00.000.000/0000-00"
+                />
+                <div class="obrigatorio-erro" *ngIf="formMonitorador.get('cnpj')?.errors?.['required'] && formMonitorador.get('cnpj')?.touched">
+                  CNPJ é obrigatório
+                </div>
+              </mat-form-field>
+            <mat-form-field>
+                <mat-label>Inscrição Estadual</mat-label>
+                <input matInput
+                  name="inscricaoEstadual"
+                  formControlName="inscricaoEstadual"
+                  mask="000.000.000.000"
+                  />
+                  <div class="obrigatorio-erro" *ngIf="formMonitorador.get('inscricaoEstadual')?.errors?.['required'] && formMonitorador.get('inscricaoEstadual')?.touched">
+                    Inscricao Estadual é obrigatório
+                  </div>
+              </mat-form-field>
+            </ng-container>
+
+          <mat-form-field>
+            <mat-label>Data de Nascimento</mat-label>
+                <input matInput
+                  type="date"
+                  name="dataNascimento"
+                  formControlName="dataNascimento"
+                />
+                <div class="obrigatorio-erro" *ngIf="formMonitorador.get('dataNascimento')?.errors?.['required'] && formMonitorador.get('dataNascimento')?.touched">
+                  Data de Nascimento é obrigatório
+                </div>
+              </mat-form-field>
+            <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput
+              type="email"
+              name="email"
+              formControlName="email"
             />
-          </ng-container>
-        </form>
+            <div class="obrigatorio-erro" *ngIf="formMonitorador.get('email')?.errors?.['required'] && formMonitorador.get('email')?.touched">
+              Email é obrigatório
+            </div>
+          </mat-form-field>
+        <mat-form-field>
+            <mat-label>Contato</mat-label>
+            <input matInput
+              name="contato"
+              formControlName="contato"
+              mask="(00) 00000-0000"
+            />
+            <div class="obrigatorio-erro" *ngIf="formMonitorador.get('contato')?.errors?.['required'] && formMonitorador.get('contato')?.touched">
+              Contato é obrigatório
+            </div>
+          </mat-form-field>
+
+            <mat-radio-group>
+              <label>O monitorador está ativo?</label><br>
+              <input type="radio" formControlName="ativo" name="ativo" value="sim"/> Sim
+              <input type="radio" formControlName="ativo" name="ativo" value="nao"/> Não
+            </mat-radio-group>
+
+
+          </form>
+
+          <button mat-raised-button (click)="onCancel()">Cancelar</button>
+          <button mat-raised-button color="primary" matStepperNext>
+            Próximo
+          </button>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Endereços</ng-template>
+          <form [formGroup]="formEnderecos">
+          <mat-form-field>
+
+            <mat-label>CEP</mat-label>
+            <input matInput
+              type="text"
+              placeholder="Ex. 94105-984"
+              name="cep"
+              formControlName="cep"
+              mask="00000-000"
+            />
+            <div class="obrigatorio-erro" *ngIf="formEnderecos.get('cep')?.errors?.['required'] && formEnderecos.get('cep')?.touched">
+              CEP é obrigatório
+            </div>
+          </mat-form-field>
+
+        <mat-form-field>
+
+            <mat-label>Cidade</mat-label>
+            <input matInput
+              type="text"
+              placeholder="Ex. San Francisco"
+              name="cidade"
+              formControlName="cidade"
+            />
+            <div class="obrigatorio-erro" *ngIf="formEnderecos.get('cidade')?.errors?.['required'] && formEnderecos.get('cidade')?.touched">
+              Cidade é obrigatório
+            </div>
+          </mat-form-field>
+
+        <mat-form-field>
+
+            <mat-label>Estado</mat-label>
+            <mat-select
+              name="estado"
+              formControlName="estado"
+            >
+              <mat-option value="AC">Acre - AC</mat-option>
+              <mat-option value="AL">Alagoas - AL</mat-option>
+              <mat-option value="AP">Amapá - AP</mat-option>
+              <mat-option value="AM">Amazonas - AM</mat-option>
+              <mat-option value="BA">Bahia - BA</mat-option>
+              <mat-option value="CE">Ceará - CE</mat-option>
+              <mat-option value="DF">Distrito Federal - DF</mat-option>
+              <mat-option value="ES">Espírito Santo - ES</mat-option>
+              <mat-option value="GO">Goiás - GO</mat-option>
+              <mat-option value="MA">Maranhão - MA</mat-option>
+              <mat-option value="MT">Mato Grosso - MT</mat-option>
+              <mat-option value="MS">Mato Grosso do Sul - MS</mat-option>
+              <mat-option value="MG">Minas Gerais - MG</mat-option>
+              <mat-option value="PA">Pará - PA</mat-option>
+              <mat-option value="PB">Paraíba - PB</mat-option>
+              <mat-option value="PR">Paraná - PR</mat-option>
+              <mat-option value="PE">Pernambuco - PE</mat-option>
+              <mat-option value="PI">Piauí - PI</mat-option>
+              <mat-option value="RJ">Rio de Janeiro - RJ</mat-option>
+              <mat-option value="RN">Rio Grande do Norte - RN</mat-option>
+              <mat-option value="RS">Rio Grande do Sul - RS</mat-option>
+              <mat-option value="RO">Rondônia - RO</mat-option>
+              <mat-option value="RR">Roraima - RR</mat-option>
+              <mat-option value="SC">Santa Catarina - SC</mat-option>
+              <mat-option value="SP">São Paulo - SP</mat-option>
+              <mat-option value="SE">Sergipe - SE</mat-option>
+              <mat-option value="TO">Tocantins - TO</mat-option>
+            </mat-select>
+            <div class="obrigatorio-erro" *ngIf="formEnderecos.get('estado')?.errors?.['required'] && formEnderecos.get('estado')?.touched">
+              Estado é obrigatório
+            </div>
+          </mat-form-field>
+
+
+          <mat-form-field>
+
+            <mat-label>Endereço</mat-label>
+            <input matInput
+              type="text"
+              name="end"
+              formControlName="end"
+            />
+            <div class="obrigatorio-erro" *ngIf="formEnderecos.get('end')?.errors?.['required'] && formEnderecos.get('end')?.touched">
+              Endereço é obrigatório
+            </div>
+          </mat-form-field>
+
+            <ng-container>
+
+              <mat-form-field>
+
+              <mat-label>Bairro</mat-label>
+              <input matInput
+                type="text"
+                name="bairro"
+                formControlName="bairro"
+              />
+              <div class="obrigatorio-erro" *ngIf="formEnderecos.get('bairro')?.errors?.['required'] && formEnderecos.get('bairro')?.touched">
+                Bairro é obrigatório
+              </div>
+            </mat-form-field>
+
+          <mat-form-field>
+
+              <mat-label>Numero</mat-label>
+              <input matInput
+                type="text"
+                name="num"
+                formControlName="num"
+              />
+              <div class="obrigatorio-erro" *ngIf="formEnderecos.get('num')?.errors?.['required'] && formEnderecos.get('num')?.touched">
+                Número é obrigatório
+              </div>
+            </mat-form-field>
+
+            </ng-container>
+          </form>
         <button class="add-endereco" mat-button color="primary">
           + Adicionar endereço</button
         ><br />

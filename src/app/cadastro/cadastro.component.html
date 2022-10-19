@@ -60,6 +60,7 @@
               <div class="obrigatorio-erro" *ngIf="formMonitorador.get('cpf')?.errors?.['required'] && formMonitorador.get('cpf')?.touched">
                 Cpf é obrigatório
               </div>
+
             </mat-form-field>
           <mat-form-field>
             <mat-label>RG</mat-label>
@@ -126,7 +127,11 @@
           <input matInput
             name="contato"
             formControlName="contato"
+            mask="(00) 00000-0000"
           />
+          <div class="obrigatorio-erro" *ngIf="formMonitorador.get('contato')?.errors?.['required'] && formMonitorador.get('contato')?.touched">
+            Contato é obrigatório
+          </div>
         </mat-form-field>
 
           <mat-radio-group>
@@ -151,12 +156,14 @@
           <mat-label>CEP</mat-label>
           <input matInput
             type="text"
-            minlength="8"
-            maxlength="8"
             placeholder="Ex. 94105-984"
             name="cep"
             formControlName="cep"
+            mask="00000-000"
           />
+          <div class="obrigatorio-erro" *ngIf="formEnderecos.get('cep')?.errors?.['required'] && formEnderecos.get('cep')?.touched">
+            CEP é obrigatório
+          </div>
         </mat-form-field>
 
       <mat-form-field>
@@ -168,6 +175,9 @@
             name="cidade"
             formControlName="cidade"
           />
+          <div class="obrigatorio-erro" *ngIf="formEnderecos.get('cidade')?.errors?.['required'] && formEnderecos.get('cidade')?.touched">
+            Cidade é obrigatório
+          </div>
         </mat-form-field>
 
       <mat-form-field>
@@ -177,35 +187,37 @@
             name="estado"
             formControlName="estado"
           >
-            <mat-option>Acre - AC</mat-option>
-            <mat-option>Alagoas - AL</mat-option>
-            <mat-option>Amapá - AP</mat-option>
-            <mat-option>Amazonas - AM</mat-option>
-            <mat-option>Bahia - BA</mat-option>
-            <mat-option>Ceará - CE</mat-option>
-            <mat-option>Distrito Federal - DF</mat-option>
-            <mat-option>Espírito Santo - ES</mat-option>
-            <mat-option>Goiás - GO</mat-option>
-            <mat-option>Maranhão - MA</mat-option>
-            <mat-option>Mato Grosso - MT</mat-option>
-            <mat-option>Mato Grosso do Sul - MS</mat-option>
-            <mat-option>Minas Gerais - MG</mat-option>
-            <mat-option>Pará - PA</mat-option>
-            <mat-option>Paraíba - PB</mat-option>
-            <mat-option>Paraná - PR</mat-option>
-            <mat-option>Pernambuco - PE</mat-option>
-            <mat-option>Piauí - PI</mat-option>
-            <mat-option>Rio de Janeiro - RJ</mat-option>
-            <mat-option>Rio Grande do Norte - RN</mat-option>
-            <mat-option>Rio Grande do Sul - RS</mat-option>
-            <mat-option>Rondônia - RO</mat-option>
-            <mat-option>Roraima - RR</mat-option>
-            <mat-option>Santa Catarina - SC</mat-option>
-            <mat-option>São Paulo - SP</mat-option>
-            <mat-option>Sergipe - SE</mat-option>
-            <mat-option>Tocantins - TO</mat-option>
-
+            <mat-option value="AC">Acre - AC</mat-option>
+            <mat-option value="AL">Alagoas - AL</mat-option>
+            <mat-option value="AP">Amapá - AP</mat-option>
+            <mat-option value="AM">Amazonas - AM</mat-option>
+            <mat-option value="BA">Bahia - BA</mat-option>
+            <mat-option value="CE">Ceará - CE</mat-option>
+            <mat-option value="DF">Distrito Federal - DF</mat-option>
+            <mat-option value="ES">Espírito Santo - ES</mat-option>
+            <mat-option value="GO">Goiás - GO</mat-option>
+            <mat-option value="MA">Maranhão - MA</mat-option>
+            <mat-option value="MT">Mato Grosso - MT</mat-option>
+            <mat-option value="MS">Mato Grosso do Sul - MS</mat-option>
+            <mat-option value="MG">Minas Gerais - MG</mat-option>
+            <mat-option value="PA">Pará - PA</mat-option>
+            <mat-option value="PB">Paraíba - PB</mat-option>
+            <mat-option value="PR">Paraná - PR</mat-option>
+            <mat-option value="PE">Pernambuco - PE</mat-option>
+            <mat-option value="PI">Piauí - PI</mat-option>
+            <mat-option value="RJ">Rio de Janeiro - RJ</mat-option>
+            <mat-option value="RN">Rio Grande do Norte - RN</mat-option>
+            <mat-option value="RS">Rio Grande do Sul - RS</mat-option>
+            <mat-option value="RO">Rondônia - RO</mat-option>
+            <mat-option value="RR">Roraima - RR</mat-option>
+            <mat-option value="SC">Santa Catarina - SC</mat-option>
+            <mat-option value="SP">São Paulo - SP</mat-option>
+            <mat-option value="SE">Sergipe - SE</mat-option>
+            <mat-option value="TO">Tocantins - TO</mat-option>
           </mat-select>
+          <div class="obrigatorio-erro" *ngIf="formEnderecos.get('estado')?.errors?.['required'] && formEnderecos.get('estado')?.touched">
+            Estado é obrigatório
+          </div>
         </mat-form-field>
 
 
@@ -217,7 +229,9 @@
             name="end"
             formControlName="end"
           />
-
+          <div class="obrigatorio-erro" *ngIf="formEnderecos.get('end')?.errors?.['required'] && formEnderecos.get('end')?.touched">
+            Endereço é obrigatório
+          </div>
         </mat-form-field>
 
           <ng-container>
@@ -230,6 +244,9 @@
               name="bairro"
               formControlName="bairro"
             />
+            <div class="obrigatorio-erro" *ngIf="formEnderecos.get('bairro')?.errors?.['required'] && formEnderecos.get('bairro')?.touched">
+              Bairro é obrigatório
+            </div>
           </mat-form-field>
 
         <mat-form-field>
@@ -240,6 +257,9 @@
               name="num"
               formControlName="num"
             />
+            <div class="obrigatorio-erro" *ngIf="formEnderecos.get('num')?.errors?.['required'] && formEnderecos.get('num')?.touched">
+              Número é obrigatório
+            </div>
           </mat-form-field>
 
           </ng-container>
