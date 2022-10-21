@@ -38,3 +38,8 @@ select {
  .radio{
   margin: 10px 0 15px 10px;
 }
+
+.obrigatorio-erro{
+  color: red;
+  font-size: 14px;
+}

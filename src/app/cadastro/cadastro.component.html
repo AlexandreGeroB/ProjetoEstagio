@@ -270,7 +270,14 @@
           <br />
 
         <button mat-raised-button matStepperPrevious>Voltar</button>
-        <button mat-raised-button [disabled]="!formMonitorador.valid && !formEnderecos.valid"  color="primary" (click)="onSubmit()">
+        <button mat-raised-button [disabled]="!formMonitorador.valid && !formEnderecos.valid"  color="primary" (click)="onSubmit()"
+                [swal]="{
+        title: 'Cadastro efetuado com sucesso',
+        text: '',
+        showConfirmButton: false,
+        icon: 'success',
+        timer: 1500
+      }">
           Salvar
         </button>
 

@@ -32,7 +32,7 @@ export class MonitoradorService {
   }
 
   putMonitorador(monitorador: Monitorador): Observable<Monitorador>{
-    return this.http.post<Monitorador>(this.urlMonitorador, monitorador)
+    return this.http.put<Monitorador>(this.urlMonitorador, monitorador)
   }
 
   deleteMonitorador(id: number){

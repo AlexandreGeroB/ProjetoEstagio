@@ -269,7 +269,13 @@
         ><br />
 
         <button mat-raised-button matStepperPrevious>Voltar</button>
-        <button mat-raised-button color="primary" (click)="update()">
+        <button mat-raised-button color="primary" (click)="update()" [swal]="{
+        title: 'Alteração efetuada com sucesso',
+        text: '',
+        showConfirmButton: false,
+        icon: 'success',
+        timer: 1500
+      }">
           Salvar
         </button>
       </mat-step>

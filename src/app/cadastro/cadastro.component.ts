@@ -56,7 +56,6 @@ export class CadastroComponent implements OnInit {
     this.router.navigateByUrl('lista');
     console.log(this.formMonitorador);
     console.log(this.enderecos);
-    alert("Cadastro efetuado com sucesso!")
   }
 
   onCancel() {

@@ -71,10 +71,10 @@ export class EditarComponent implements OnInit {
   }
 
   update(){
-    this.service.putMonitorador(this.formMonitorador.value).subscribe(() =>{
+    this.service.putMonitorador(this.formMonitorador.value).subscribe();
       this.router.navigateByUrl('lista');
       //this.service.putEnderecos(this.endereco).subscribe()
-    })
+
   }
 
   onCancel(){

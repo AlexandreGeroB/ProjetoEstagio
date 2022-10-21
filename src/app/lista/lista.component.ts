@@ -30,11 +30,6 @@ export class ListaComponent implements OnInit {
     this.router.navigateByUrl('lista/cadastro')
   }
 
-  /*
-  onDelete(row: Monitorador){
-    this.deleteModalRef = this.modalService.show(this.deleteModal, {class: 'modal-sm'})
-  }
-*/
   onRemove(row: Monitorador){
     this.service.deleteMonitorador(row.id).subscribe();
     //this.service.deleteEnderecos(row.id).subscribe();
