@@ -51,11 +51,12 @@ export class CadastroComponent implements OnInit {
   }
 
   onSubmit() {
-    this.service.createMonitorador(this.formMonitorador.value).subscribe();
-    this.service.createEnderecos(this.enderecos).subscribe();
+    // @ts-ignore
+    this.service.createMonitorador(this.formMonitorador.value, this.enderecos).subscribe();
+    //this.service.createEnderecos(this.enderecos).subscribe();
     this.router.navigateByUrl('lista');
-    console.log(this.formMonitorador);
-    console.log(this.enderecos);
+    console.log(this.formMonitorador.value);
+    console.log(this.enderecos  );
   }
 
   onCancel() {

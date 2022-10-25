@@ -18,8 +18,9 @@ export class MonitoradorService {
     private http: HttpClient
   ) { }
 
-  createMonitorador(monitorador: Monitorador){
-    return this.http.post<Monitorador>(this.urlMonitorador, monitorador)
+  createMonitorador(monitorador: Monitorador, enderecos: Enderecos[]){
+    return this.http.post<Monitorador>(this.urlMonitorador, monitorador);
+    return this.http.post<Enderecos[]>(this.urlMonitorador, enderecos)
   }
 
   get(): Observable<Monitorador[]>{
@@ -40,7 +41,7 @@ export class MonitoradorService {
   }
 
   createEnderecos(enderecos:Enderecos[]){
-    return this.http.post<Enderecos>(this.urlEnderecos, enderecos)
+    return this.http.post<Enderecos>(this.urlMonitorador, enderecos)
   }
 
   getByIdEnderecos(id: any): Observable<Enderecos> {

@@ -10,5 +10,5 @@ export interface Monitorador {
   dataNascimento: string,
   ativo: string,
   tipoPessoa: string
-
+  enderecos: []
 }
