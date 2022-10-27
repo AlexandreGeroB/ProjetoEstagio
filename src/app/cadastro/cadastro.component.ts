@@ -27,7 +27,6 @@ export class CadastroComponent implements OnInit {
   }
   ngOnInit(): void {
     this.formMonitorador = this.formBuilder.group({
-      id: [0],
       nome: ['', [Validators.required]],
       tipoPessoa: ['fisica'],
       cpf: ['', [Validators.required, Validators.minLength(11),Validators.maxLength(11)]],
@@ -38,6 +37,7 @@ export class CadastroComponent implements OnInit {
       contato: ['', [Validators.required, Validators.minLength(11),Validators.maxLength(11)]],
       dataNascimento: ['', [Validators.required]],
       ativo: ['sim', [Validators.required]],
+      enderecos: [this.enderecos]
     });
 
     this.formEnderecos = this.formBuilder.group({
