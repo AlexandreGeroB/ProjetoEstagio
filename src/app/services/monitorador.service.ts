@@ -32,8 +32,13 @@ export class MonitoradorService {
     return this.http.get<Monitorador>(url)
   }
 
-  putMonitorador(monitorador: Monitorador): Observable<Monitorador>{
-    return this.http.put<Monitorador>(this.urlMonitorador, monitorador)
+  // putMonitorador(monitorador: Monitorador, enderecos: Enderecos[]): Observable<any>{
+  //   return this.http.put<Monitorador>(this.urlMonitorador, monitorador);
+  //   return this.http.put<Enderecos[]>(this.urlMonitorador, enderecos);
+  // }
+
+  putEnderecos(enderecos: Enderecos[]): Observable<Enderecos[]>{
+    return this.http.put<Enderecos[]>(this.urlMonitorador, enderecos);
   }
 
   deleteMonitorador(id: number){
@@ -47,10 +52,6 @@ export class MonitoradorService {
   getByIdEnderecos(id: any): Observable<Enderecos> {
     const url = `${this.urlEnderecos}/${id}`
     return this.http.get<Enderecos>(url)
-  }
-
-  putEnderecos(enderecos: Enderecos): Observable<Enderecos>{
-    return this.http.post<Enderecos>(this.urlEnderecos, enderecos)
   }
 
   deleteEnderecos(id: number){

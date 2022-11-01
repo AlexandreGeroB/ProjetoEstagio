@@ -40,6 +40,7 @@ export class EditarComponent implements OnInit {
       contato: ['', [Validators.required, Validators.minLength(11),Validators.maxLength(11)]],
       dataNascimento: ['', [Validators.required]],
       ativo: ['sim', [Validators.required]],
+      enderecos: [this.enderecos]
     });
 
     this.formEnderecos = this.formBuilder.group({
@@ -65,15 +66,17 @@ export class EditarComponent implements OnInit {
       contato: monitorador.contato,
       dataNascimento: monitorador.dataNascimento,
       ativo: monitorador.ativo,
+      enderecos: monitorador.enderecos
     });
     console.log(monitorador);
 
   }
 
   update(){
+    // @ts-ignore
     this.service.putMonitorador(this.formMonitorador.value).subscribe();
+    // this.service.putEnderecos(this.enderecos).subscribe();
       this.router.navigateByUrl('lista');
-      //this.service.putEnderecos(this.endereco).subscribe()
 
   }
 
