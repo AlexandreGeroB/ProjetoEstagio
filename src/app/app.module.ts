@@ -34,6 +34,9 @@ import { EditarComponent } from './editar/editar.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatRadioModule} from '@angular/material/radio';
+import { ViewEnderecosComponent } from './view-enderecos/view-enderecos.component';
+import { MatSortModule } from '@angular/material/sort';
+import { CadastroEnderecosComponent } from './cadastro-enderecos/cadastro-enderecos.component';
 
 
 
@@ -45,6 +48,8 @@ import {MatRadioModule} from '@angular/material/radio';
     ListaComponent,
     CadastroComponent,
     EditarComponent,
+    ViewEnderecosComponent,
+    CadastroEnderecosComponent,
 
   ],
   imports: [
@@ -72,6 +77,7 @@ import {MatRadioModule} from '@angular/material/radio';
     ModalModule,
     SweetAlert2Module.forRoot(),
     NgxMaskModule.forRoot(),
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

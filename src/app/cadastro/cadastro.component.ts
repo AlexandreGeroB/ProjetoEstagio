@@ -3,6 +3,7 @@ import { MonitoradorService } from './../services/monitorador.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {CepService} from "../services/cep.service";
 
 @Component({
   selector: 'app-cadastro',
@@ -21,7 +22,8 @@ export class CadastroComponent implements OnInit {
   constructor(
     private router: Router,
     private service: MonitoradorService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private cepService: CepService
   ) {
 
   }
@@ -65,5 +67,19 @@ export class CadastroComponent implements OnInit {
   addEndereco(){
     this.enderecos.push({...this.formEnderecos.value});
     console.log(this.enderecos)
+  }
+
+  consultaCep(valor: any, formEnderecos: any){
+    this.cepService.buscarCep(valor).subscribe((dados) => this.populaForm(dados, formEnderecos))
+  }
+
+  populaForm(dados: any, formEnderecos: any){
+    formEnderecos.setValue({
+      cep: dados.cep,
+      cidade: dados.localidade,
+      estado: dados.uf,
+      end: dados.logradouro,
+      bairro: dados.bairro
+    })
   }
 }

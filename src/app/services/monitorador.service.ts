@@ -27,6 +27,10 @@ export class MonitoradorService {
     return this.http.get<Monitorador[]>(this.urlMonitorador)
   }
 
+  getEnd(): Observable<Enderecos[]>{
+    return this.http.get<Enderecos[]>(this.urlMonitorador)
+  }
+
   getByIdMonitorador(id: any): Observable<Monitorador> {
     const url = `${this.urlMonitorador}/${id}`
     return this.http.get<Monitorador>(url)
