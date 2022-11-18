@@ -1,0 +1,45 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card-title{
+  text-align: center;
+}
+
+button {
+  margin-right: 15px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+mat-label {
+  margin-bottom: 10px;
+}
+
+.container {
+  width: 60%;
+}
+
+select {
+  margin-bottom: 10px;
+}
+
+h3{
+  margin: 15px 0;
+}
+
+.add-endereco{
+  margin-bottom: 15px;
+}
+
+.radio{
+  margin: 10px 0 15px 10px;
+}
+
+.obrigatorio-erro{
+  color: red;
+  font-size: 14px;
+}
